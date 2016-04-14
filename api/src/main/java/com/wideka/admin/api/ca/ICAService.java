@@ -4,7 +4,7 @@ import com.wideka.admin.api.ca.bo.ValidateResult;
 
 /**
  * 
- * @author xujiakun
+ * @author JiakunXu
  * 
  */
 public interface ICAService {

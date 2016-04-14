@@ -7,7 +7,6 @@
 	
 	<!-- 首页 -->
 	<bean id="portalAction" class="com.wideka.admin.portal.action.PortalAction" parent="baseAction" scope="request">
-		<property name="weixinService" ref="weixinService" />
 	</bean>
 
 </beans>

@@ -14,16 +14,26 @@
 			<script src="$!{env.imgUrl}/angular/angular.min.js"></script>
 		#elseif($key == 'bootstrap')
 			<script src="$!{env.imgUrl}/bootstrap/js/bootstrap.min.js"></script>
+		#elseif($key == 'bootstrap-daterangepicker')
+			<script src="$!{env.imgUrl}/bootstrap-daterangepicker/daterangepicker.js"></script>
+		#elseif($key == 'bootstrap-progressbar')
+			<script src="$!{env.imgUrl}/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
 		#elseif($key == 'bootstrap.table')
 			<script src="$!{env.imgUrl}/bootstrap.table/bootstrap-table.min.js"></script>
 		#elseif($key == 'bootstrap.table.editable')
 			<script src="$!{env.imgUrl}/bootstrap.table/extensions/editable/bootstrap-table-editable.min.js"></script>
 		#elseif($key == 'bootstrap3.editable')
 			<script src="$!{env.imgUrl}/bootstrap3.editable/js/bootstrap-editable.min.js"></script>
+		#elseif($key == 'Chart.js')
+			<script src="$!{env.imgUrl}/Chart.js/Chart.min.js"></script>
 		#elseif($key == 'common')
 			<script src="$!{env.imgUrl}/js/common.js"></script>
 		#elseif($key == 'framework7')
 			<script src="$!{env.imgUrl}/framework7/js/framework7.min.js"></script>
+		#elseif($key == 'gauge.js')
+			<script src="$!{env.imgUrl}/gauge.js/gauge.min.js"></script>
+		#elseif($key == 'icheck')
+			<script src="$!{env.imgUrl}/icheck/icheck.min.js"></script>
 		#elseif($key == 'jquery')
 			<script src="$!{env.imgUrl}/jquery/jquery-1.12.1.min.js"></script>
 		#elseif($key == 'jquery.citytools')
@@ -32,6 +42,16 @@
 			<script src="$!{env.imgUrl}/jquery.cookie/jquery.cookie.js"></script>
 		#elseif($key == 'jquery.lazyload')
 			<script src="$!{env.imgUrl}/jquery.lazyload/jquery.lazyload.min.js"></script>
+		#elseif($key == 'jvectormap')
+			<script src="$!{env.imgUrl}/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
+		#elseif($key == 'moment')
+			<script src="$!{env.imgUrl}/moment/min/moment.min.js"></script>
+		#elseif($key == 'nprogress')
+			<script src="$!{env.imgUrl}/nprogress/nprogress.js"></script>
+		#elseif($key == 'pace')
+			<script src="$!{env.imgUrl}/pace/pace.min.js"></script>
+		#elseif($key == 'skycons')
+			<script src="$!{env.imgUrl}/skycons/skycons.js"></script>
 		#elseif($key == 'weixin')
 			<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 		#elseif($key == 'zeptojs')
@@ -42,7 +62,9 @@
 
 #macro(CSSM $libs)
 	#foreach ($key in $libs)
-		#if($key == 'bootstrap')
+		#if($key == 'animate')
+			<link rel="stylesheet" href="$!{env.imgUrl}/animate/animate.min.css" />
+		#elseif($key == 'bootstrap')
 			<link rel="stylesheet" href="$!{env.imgUrl}/bootstrap/css/bootstrap.min.css" />
 			<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
             <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,6 +83,8 @@
 			<link rel="stylesheet" href="$!{env.imgUrl}/framework7/css/framework7.ios.colors.min.css" />
 		#elseif($key == 'iconfont')
 			<link rel="stylesheet" href="$!{env.imgUrl}/iconfont/iconfont.css" />
+		#elseif($key == 'jvectormap')
+			<link rel="stylesheet" href="$!{env.imgUrl}/jvectormap/jquery-jvectormap-2.0.3.css" />
 		#elseif($key == 'nav')
 			<link rel="stylesheet" href="$!{env.imgUrl}/css/nav/nav-global.css" />
 		#elseif($key == 'weui')

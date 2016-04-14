@@ -15,9 +15,5 @@
 			<result name="success">/admin/portal/home.vm</result>
 		</action>
 		
-		<action name="homepage" class="portalAction" method="homepage">
-			<result name="success">/admin/portal/homepage.vm</result>
-		</action>
-		
 	</package>
 </struts>

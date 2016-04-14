@@ -45,7 +45,7 @@ public class AuthenticationInterceptor implements Interceptor {
 				setAttribute("goto", getUrl());
 			}
 
-			return LOGIN_TIMEOUT;
+			// return LOGIN_TIMEOUT;
 		}
 
 		return invocation.invoke();
