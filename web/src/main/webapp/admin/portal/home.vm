@@ -36,8 +36,8 @@
 									<div class="col-50" style="padding-right: 5px;">
 										<div class="small-box" style="background-color: #F4D03F; color: #FFFFFF;">
 											<div class="inner">
-												<h3>今天：0.00<br/>本月：0.00</h3>
-												<p>销售</p>
+												<h3>销售</h3>
+												<p>今天：0.00<br/>本月：0.00</p>
 											</div>
 											<div class="icon">
 												<i class="icon iconfont icon-rank"></i>
@@ -48,8 +48,8 @@
 									<div class="col-50" style="padding-left: 5px;">
 										<div class="small-box" style="background-color: #F2784B; color: #FFFFFF;">
 											<div class="inner">
-												<h3>今天：0.00<br/>本月：0.00</h3>
-												<p>收入</p>
+												<h3>收入</h3>
+												<p>今天：0.00<br/>本月：0.00</p>
 											</div>
 											<div class="icon">
 												<i class="icon iconfont icon-recharge"></i>
@@ -60,8 +60,8 @@
 									<div class="col-50" style="padding-right: 5px;">
 										<div class="small-box" style="background-color: #A6D17C; color: #FFFFFF;">
 											<div class="inner">
-												<h3>金额：0.00<br/>&nbsp;</h3>
-												<p>库存</p>
+												<h3>库存</h3>
+												<p>金额：0.00<br/>&nbsp;</p>
 											</div>
 											<div class="icon">
 												<i class="icon iconfont icon-cascades"></i>
@@ -72,8 +72,8 @@
 									<div class="col-50" style="padding-left: 5px;">
 										<div class="small-box" style="background-color: #80DDB1; color: #FFFFFF;">
 											<div class="inner">
-												<h3>金额：0.00<br/>数量：0</h3>
-												<p>采购</p>
+												<h3>采购</h3>
+												<p>金额：0.00<br/>数量：0</p>
 											</div>
 											<div class="icon">
 												<i class="icon iconfont icon-cart"></i>
@@ -84,8 +84,8 @@
 									<div class="col-50" style="padding-right: 5px;">
 										<div class="small-box" style="background-color: #E26A6A; color: #FFFFFF;">
 											<div class="inner">
-												<h3>新开：0<br/>总计：0</h3>
-												<p>便民亭</p>
+												<h3>便民亭</h3>
+												<p>新开：0<br/>总计：0</p>
 											</div>
 											<div class="icon">
 												<i class="icon iconfont icon-shop"></i>
@@ -96,8 +96,8 @@
 									<div class="col-50" style="padding-left: 5px;">
 										<div class="small-box" style="background-color: #F5D76E; color: #FFFFFF;">
 											<div class="inner">
-												<h3>保证金：0.00<br/>金额：0.00</h3>
-												<p>资金</p>
+												<h3>资金</h3>
+												<p>保证金：0.00<br/>金额：0.00</p>
 											</div>
 											<div class="icon">
 												<i class="icon iconfont icon-sponsor"></i>

@@ -1,14 +1,8 @@
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-weight: 400;
     overflow-x: hidden;
     overflow-y: auto;
-}
-
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: 'Source Sans Pro',sans-serif;
 }
 
 .content {
@@ -18,11 +12,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
-}
-
-@media (max-width: 767px)
-.small-box {
-    text-align: center;
 }
 
 .small-box {
@@ -38,7 +27,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .small-box h3 {
-    font-size: 18px;
+    font-size: 23px;
     font-weight: bold;
     margin: 0 0 10px 0;
     white-space: nowrap;
@@ -55,12 +44,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .small-box p {
-    font-size: 15px;
-}
-
-@media (max-width: 767px)
-.small-box .icon {
-    display: none;
+    font-size: 16px;
 }
 
 .small-box .icon {
@@ -72,7 +56,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     right: 10px;
     z-index: 0;
     font-size: 90px;
-    color: rgba(0,0,0,0.15);
+    color: rgba(0,0,0,0.10);
 }
 
 .small-box>.small-box-footer {
