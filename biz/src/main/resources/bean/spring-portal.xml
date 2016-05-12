@@ -6,7 +6,7 @@
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
 	<!-- 首页 -->
-	<bean id="portalAction" class="com.wideka.admin.portal.action.PortalAction" parent="baseAction" scope="request">
+	<bean id="portalAction" class="com.hsh24.admin.portal.action.PortalAction" parent="baseAction" scope="request">
 	</bean>
 
 </beans>
