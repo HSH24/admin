@@ -40,34 +40,34 @@ public class LoginAction extends BaseAction {
 	 */
 	@ActionMonitor(actionName = "系统登录")
 	public String login() {
-//		ValidateResult result = caService.validateUser(passport, password);
-//
-//		// 验证失败
-//		if (ICAService.RESULT_FAILED.equals(result.getResultCode())
-//			|| ICAService.RESULT_ERROR.equals(result.getResultCode())) {
-//			this.setFailMessage(result.getMessage());
-//
-//			return "incorrect";
-//		}
-//
-//		// 验证通过
-//		User u = result.getUser();
-//
-//		HttpSession session = this.getSession();
-//		session.setAttribute("ACEGI_SECURITY_LAST_PASSPORT", u.getPassport());
-//
-//		session.setAttribute("ACEGI_SECURITY_LAST_LOGINUSER", u);
-//
-//		HttpServletResponse response = getServletResponse();
-//		if (response != null) {
-//			Cookie ps = new Cookie("PS", u.getPassport());
-//			// ps.setMaxAge(-1);
-//			ps.setPath("/");
-//			ps.setDomain(env.getProperty("domain"));
-//			response.addCookie(ps);
-//		}
+		ValidateResult result = caService.validateUser(passport, password);
 
-		return SUCCESS;
+		// 验证失败
+		if (ICAService.RESULT_FAILED.equals(result.getResultCode())
+			|| ICAService.RESULT_ERROR.equals(result.getResultCode())) {
+			this.getServletResponse().setStatus(599);
+			this.setResourceResult(result.getMessage());
+
+			return RESOURCE_RESULT;
+		}
+
+		// 验证通过
+		User u = result.getUser();
+
+		HttpSession session = this.getSession();
+		session.setAttribute("ACEGI_SECURITY_LAST_PASSPORT", u.getPassport());
+		session.setAttribute("ACEGI_SECURITY_LAST_LOGINUSER", u);
+
+		HttpServletResponse response = getServletResponse();
+		if (response != null) {
+			Cookie ps = new Cookie("PS", u.getPassport());
+			// ps.setMaxAge(-1);
+			ps.setPath("/");
+			ps.setDomain(env.getProperty("domain"));
+			response.addCookie(ps);
+		}
+
+		return RESOURCE_RESULT;
 	}
 
 	/**

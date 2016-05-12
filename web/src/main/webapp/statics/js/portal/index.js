@@ -1,15 +1,173 @@
-function submit() {
-	$('#btn').button('loading');
+// Initialize your app
+var myApp = new Framework7({
+			animateNavBackIcon : true,
+			// animatePages : Framework7.prototype.device.ios,
+			swipePanel : 'left',
+			// Hide and show indicator during ajax requests
+			onAjaxStart : function(xhr) {
+				myApp.showIndicator();
+			},
+			onAjaxComplete : function(xhr) {
+				myApp.hideIndicator();
+			}
+		});
 
-	window.document.forms[0].submit();
+// Export selectors engine
+var $$ = Dom7;
+
+// Add view
+var mainView = myApp.addView('.view-main', {
+			// Because we use fixed-through navbar we can enable dynamic navbar
+			dynamicNavbar : true
+		});
+
+var portal_index_op;
+
+$$('form.ajax-submit').on('beforeSubmit', function(e) {
+		});
+
+$$('form.ajax-submit').on('submitted', function(e) {
+			myApp.hideIndicator();
+			var xhr = e.detail.xhr;
+
+			if (portal_index_op == 'login') {
+				top.location.href = appUrl + "/home.htm";
+			} else if (portal_index_op == 'forgetPassword') {
+				mainView.router.load({
+							url : appUrl + "/user/setPassword.htm"
+						});
+			}
+		});
+
+$$('form.ajax-submit').on('submitError', function(e) {
+			myApp.hideIndicator();
+			var xhr = e.detail.xhr;
+			myApp.alert(xhr.responseText, '错误');
+		});
+
+function submit() {
+	setPassportCookies();
+
+	myApp.showIndicator();
+
+	portal_index_op = "login";
+	$$('#portal/index/login/form').attr("action", appUrl + "/login.htm");
+
+	$$('#portal/index/login/form').trigger("submit");
 }
 
-document.onkeydown = function(e) {
-	var theEvent = e || window.event;
-	var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
-	if (code == 13) {
-		submit();
-		return false;
+function more() {
+	var buttons = [{
+				text : '帮助中心',
+				onClick : function() {
+
+				}
+			}, {
+				text : '取消'
+			}];
+	myApp.actions(buttons);
+}
+
+// forgetPassword
+
+function forgetPassword() {
+	$('#portal_index_forgetPassword_passport').val($('#portal_index_passport')
+			.val());
+
+	myApp.popup('.popup-forgetPassword');
+}
+
+function sendCheckCode() {
+	if (disabled) {
+		return;
 	}
-	return true;
+
+	$.ajax({
+				type : "post",
+				url : appUrl + "/user/sendCheckCode.htm",
+				data : {
+					"passport" : $('#portal_index_forgetPassword_passport')
+							.val(),
+					dateTime : new Date().getTime()
+				},
+				beforeSend : function() {
+					startTimer();
+				},
+				success : function(data) {
+
+				},
+				error : function(data) {
+					myApp.alert(data.responseText, '错误');
+					stopTimer();
+				}
+			});
+}
+
+function validate() {
+	myApp.showIndicator();
+
+	portal_index_op = "forgetPassword";
+	$$('#portal/index/forgetPassword/form').attr("action",
+			appUrl + "/user/validateCheckCode.htm");
+
+	$$('#portal/index/forgetPassword/form').trigger("submit");
+}
+
+var timer;
+var sendBtn = $('#sendBtn');
+var disabled = false;
+
+function stopTimer() {
+	clearTimeout(timer);
+	disabled = false;
+	sendBtn.text('点此获取');
+}
+
+function startTimer() {
+	disabled = true;
+	btnCountdown(sendBtn, 60, function() {
+				sendBtn.text('再次获取');
+				disabled = false;
+			});
+}
+
+function btnCountdown(obj, second, callback) {
+	$(obj).text(second + '秒');
+	if (--second >= 0) {
+		timer = setTimeout(function() {
+					btnCountdown(obj, second, callback);
+				}, 1000);
+	} else {
+		callback();
+	}
+}
+
+// base
+
+var __last_login_passport__ = "__last_login_passport__";
+
+function setPassport() {
+	var lastuser = $.cookie(__last_login_passport__);
+
+	if (lastuser != null && lastuser != "" && lastuser != "null") {
+		document.forms[0].passport.value = lastuser;
+		document.forms[0].password.focus();
+	} else {
+		document.forms[0].passport.focus();
+		document.forms[0].passport.select();
+	}
+}
+
+function setPassportCookies() {
+	$.cookie(__last_login_passport__, null);
+
+	var passport = document.forms[0].passport.value;
+
+	$.cookie(__last_login_passport__, passport, {
+				expires : 30,
+				path : '/' + appName + '/',
+				domain : domain
+			});
+
+	// _gaq.push(['_trackEvent', 'Home', 'Login', passport]);
 }
