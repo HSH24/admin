@@ -34,7 +34,7 @@
 							<section class="content">
 								<div class="row no-gutter">
 									<div class="col-50" style="padding-right: 5px;">
-										<div class="small-box" style="background-color: #F4D03F; color: #FFFFFF;">
+										<div class="small-box" style="background-color: #5BC39D; color: #FFFFFF;">
 											<div class="inner">
 												<h3>销售</h3>
 												<p>今天：0.00<br/>本月：0.00</p>
@@ -58,7 +58,7 @@
 										</div>
 									</div>
 									<div class="col-50" style="padding-right: 5px;">
-										<div class="small-box" style="background-color: #A6D17C; color: #FFFFFF;">
+										<div class="small-box" style="background-color: #B68FCC; color: #FFFFFF;">
 											<div class="inner">
 												<h3>库存</h3>
 												<p>金额：0.00<br/>&nbsp;</p>
@@ -70,7 +70,7 @@
 										</div>
 									</div>
 									<div class="col-50" style="padding-left: 5px;">
-										<div class="small-box" style="background-color: #80DDB1; color: #FFFFFF;">
+										<div class="small-box" style="background-color: #59ABE3; color: #FFFFFF;">
 											<div class="inner">
 												<h3>采购</h3>
 												<p>金额：0.00<br/>数量：0</p>
@@ -82,7 +82,7 @@
 										</div>
 									</div>
 									<div class="col-50" style="padding-right: 5px;">
-										<div class="small-box" style="background-color: #E26A6A; color: #FFFFFF;">
+										<div class="small-box" style="background-color: #70A9B7; color: #FFFFFF;">
 											<div class="inner">
 												<h3>便民亭</h3>
 												<p>新开：0<br/>总计：0</p>
@@ -94,7 +94,7 @@
 										</div>
 									</div>
 									<div class="col-50" style="padding-left: 5px;">
-										<div class="small-box" style="background-color: #F5D76E; color: #FFFFFF;">
+										<div class="small-box" style="background-color: #B9C14D; color: #FFFFFF;">
 											<div class="inner">
 												<h3>资金</h3>
 												<p>保证金：0.00<br/>金额：0.00</p>
