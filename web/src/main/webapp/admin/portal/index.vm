@@ -28,7 +28,7 @@
     							</div>
 								
         						<!-- Login form -->
-								<form id="portal/index/login/form" method="POST" class="ajax-submit">
+								<form id="portal/index/login/form" method="POST" class="ajax-submit portal-index-login-form">
         							<div class="list-block">
         								<ul>
         									<li class="item-content">
@@ -76,14 +76,14 @@
 				<!-- Top Navbar-->
 				<div class="navbar" style="background: #FFFFFF;">
 					<div class="navbar-inner">
-						<div class="left"><a href="#" class="close-popup link"> <i class="icon iconfont icon-unfold" style="font-size: 21px;"></i><span></span></a></div>
+						<div class="left"><a href="#" class="close-popup link"> <i class="iconfont icon-unfold" style="font-size: 21px;"></i><span></span></a></div>
 					</div>
 				</div>
 				<div class="pages navbar-through">
     				<div data-page="portal.forgetPassword" class="page">
     					<div class="page-content login-screen-content">
-    						<div class="login-screen-title" style="font-size: 25px;">通过短信找回密码</div>
-    						<form id="portal/index/forgetPassword/form" method="POST" class="ajax-submit">
+    						<div class="login-screen-title" style="font-size: 25px;">通过短信登录</div>
+    						<form id="portal/index/forgetPassword/form" method="POST" class="ajax-submit portal-index-forgetPassword-form">
     							<div class="list-block">
     								<ul>
     									<li class="item-content">
@@ -100,7 +100,7 @@
     											<div class="item-input">
 													<div class="row">
 														<div class="col-60">
-															<input type="tel" name="checkCode" placeholder="短信校验码"></input>
+															<input type="tel" id="portal_index_forgetPassword_checkCode" name="checkCode" placeholder="短信校验码"></input>
                                                         </div>
 														<div class="col-40" style="margin-top: 8px;">
 															<a href="javascript:sendCheckCode();" class="button color-green" id="sendBtn">点击获取</a>
@@ -135,7 +135,7 @@
     	var appName = '$!{env.appName}';
 		var domain = '$!{env.domain}';
         </script>
-		<script type="text/javascript" src="$!{env.imgUrl}/js/portal/index.js"></script>
-		<script type="text/javascript" src="$!{env.imgUrl}/js/user/setPassword.js"></script>
+		<script src="$!{env.imgUrl}/js/portal/index.js"></script>
+		<script src="$!{env.imgUrl}/js/user/setPassword.js"></script>
 	</body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+ "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="{http://admin}admin$user"
+		extends="{http://admin}admin$framework" namespace="/user">
+		
+		<!-- 发送验证码 -->
+		<action name="sendCheckCode" class="userAcctAction" method="sendCheckCode"></action>
+		
+		<action name="validateCheckCode" class="userAcctAction" method="validateCheckCode"></action>
+		
+		<action name="validatePassword" class="userAcctAction" method="validatePassword">
+			<interceptor-ref name="authenticationStack" />
+		</action>
+		
+		<!-- 重置密码 -->
+		<action name="setPassword" class="userAcctAction" method="setPassword">
+			<result name="success">/admin/user/setPassword.vm</result>
+		</action>
+		
+		<!-- 可能 不存在 店铺 -->
+		<action name="updatePassword" class="userAcctAction" method="updatePassword"></action>
+		
+		<!-- 用户基本信息 -->
+		<action name="detail" class="userAction" method="detail">
+			<interceptor-ref name="authenticationStack" />
+			<result name="success">/admin/user/detail.vm</result>
+		</action>
+		
+		<action name="setUserName" class="userAction" method="setUserName">
+			<interceptor-ref name="authenticationStack" />
+			<result name="success">/admin/user/setUserName.vm</result>
+		</action>
+		
+		<action name="updateUserName" class="userAction" method="updateUserName">
+			<interceptor-ref name="authenticationStack" />
+		</action>
+
+	</package>
+</struts>

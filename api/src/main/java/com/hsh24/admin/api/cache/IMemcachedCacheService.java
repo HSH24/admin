@@ -38,11 +38,14 @@ public interface IMemcachedCacheService extends ICacheService<String, Object> {
 	int CACHE_KEY_SSO_TOKEN_DEFAULT_EXP = 60;
 
 	/**
-	 * user id.
+	 * check code.
 	 */
-	String CACHE_KEY_USER_ID = "key_user_id_";
+	String CACHE_KEY_CHECK_CODE = "key_check_code_";
 
-	int CACHE_KEY_LOCKED_USER_ID_DEFAULT_EXP = 1 * 3;
+	/**
+	 * check code.
+	 */
+	int CACHE_KEY_CHECK_CODE_DEFAULT_EXP = 30 * 60;
 
 	/**
 	 * passport.
@@ -73,12 +76,6 @@ public interface IMemcachedCacheService extends ICacheService<String, Object> {
 	String CACHE_KEY_WX_TOKEN = "key_wx_token_";
 
 	String CACHE_KEY_WX_TICKET = "key_wx_ticket_";
-
-	// >>>>>>>>>>以下是交易相关<<<<<<<<<<
-
-	String CACHE_KEY_TRADE_NO = "key_trade_no_";
-
-	int CACHE_KEY_TRADE_NO_DEFAULT_EXP = 3;
 
 	// >>>>>>>>>>end<<<<<<<<<<
 

@@ -30,6 +30,8 @@ public class User extends SearchInfo {
 
 	private String state;
 
+	private String modifyUser;
+
 	public String getUserId() {
 		return userId;
 	}
@@ -68,6 +70,14 @@ public class User extends SearchInfo {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+
+	public String getModifyUser() {
+		return modifyUser;
+	}
+
+	public void setModifyUser(String modifyUser) {
+		this.modifyUser = modifyUser;
 	}
 
 }
