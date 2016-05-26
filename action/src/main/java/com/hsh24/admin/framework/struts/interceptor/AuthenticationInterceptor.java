@@ -8,6 +8,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.hsh24.admin.api.ca.ICAService;
+import com.hsh24.admin.api.org.bo.Org;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
@@ -44,6 +45,12 @@ public class AuthenticationInterceptor implements Interceptor {
 				setAttribute("goto", getUrl());
 			}
 
+			return LOGIN_TIMEOUT;
+		}
+
+		Org org = (Org) session.get("ACEGI_SECURITY_LAST_ORG");
+		if (org == null) {
+			// TODO
 			return LOGIN_TIMEOUT;
 		}
 

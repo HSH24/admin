@@ -19,8 +19,14 @@
 			<result name="success">/admin/user/setPassword.vm</result>
 		</action>
 		
-		<!-- 可能 不存在 店铺 -->
+		<!-- 可能 不存在 组织 -->
 		<action name="updatePassword" class="userAcctAction" method="updatePassword"></action>
+		
+		<!-- 组织 -->
+		<action name="org" class="userOrgAction" method="index">
+			<result name="org">/dms/user/org.vm</result>
+			<result name="success" type="redirect">${env.appUrl}/home.htm</result>
+		</action>
 		
 		<!-- 用户基本信息 -->
 		<action name="detail" class="userAction" method="detail">

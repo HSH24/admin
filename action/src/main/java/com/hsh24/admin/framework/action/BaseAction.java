@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.hsh24.admin.api.org.bo.Org;
 import com.hsh24.admin.api.user.bo.User;
 import com.hsh24.admin.framework.annotation.Decode;
 import com.hsh24.admin.framework.bo.SearchInfo;
@@ -18,7 +19,7 @@ import com.opensymphony.xwork2.ActionSupport;
 /**
  * BaseAction.
  * 
- * @author xujiakun
+ * @author JiakunXu
  * 
  */
 public class BaseAction extends ActionSupport {
@@ -124,6 +125,10 @@ public class BaseAction extends ActionSupport {
 	 */
 	public User getUser() {
 		return (User) getSession().getAttribute("ACEGI_SECURITY_LAST_LOGINUSER");
+	}
+
+	public Org getOrg() {
+		return (Org) getSession().getAttribute("ACEGI_SECURITY_LAST_ORG");
 	}
 
 	public String getGmtStart() {

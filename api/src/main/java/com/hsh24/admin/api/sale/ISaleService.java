@@ -14,26 +14,26 @@ public interface ISaleService {
 
 	/**
 	 * 
-	 * @param shopId
+	 * @param orgId
 	 * @param sale
 	 * @return
 	 */
-	Sale getStats(Long shopId, Sale sale);
+	Sale getStats(Long orgId, Sale sale);
 
 	/**
 	 * 
-	 * @param shopId
+	 * @param orgId
 	 * @param sale
 	 * @return
 	 */
-	List<Sale> getSaleList(Long shopId, Sale sale);
+	List<Sale> getSaleList(Long orgId, Sale sale);
 
 	/**
 	 * 
-	 * @param shopId
+	 * @param orgId
 	 * @param tradeNo
 	 * @return
 	 */
-	List<SaleDetail> getSaleDetailList(Long shopId, String tradeNo);
+	List<SaleDetail> getSaleDetailList(Long orgId, String tradeNo);
 
 }

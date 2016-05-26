@@ -39,7 +39,7 @@ public class SaleAction extends BaseAction {
 		String date = DateUtil.getNowDateStr();
 		sale.setGmtStart(date + " 00:00:00");
 		sale.setGmtEnd(date + " 23:59:59");
-		sale = saleService.getStats(this.getUser().getOrgId(), sale);
+		sale = saleService.getStats(this.getOrg().getOrgId(), sale);
 		sb.append(sale == null ? "0.00" : FormatUtil.getAmountFormat(sale.getAmount())).append("&");
 
 		sale = new Sale();
@@ -48,7 +48,7 @@ public class SaleAction extends BaseAction {
 		String mm = String.valueOf(DateUtil.getMonth());
 		sale.setGmtStart(yyyy + "-" + mm + "-01 00:00:00");
 		sale.setGmtEnd(yyyy + "-" + mm + "-31 23:59:59");
-		sale = saleService.getStats(this.getUser().getOrgId(), sale);
+		sale = saleService.getStats(this.getOrg().getOrgId(), sale);
 		sb.append(sale == null ? "0.00" : FormatUtil.getAmountFormat(sale.getAmount()));
 
 		this.setResourceResult(sb.toString());
@@ -67,13 +67,13 @@ public class SaleAction extends BaseAction {
 		sale.setGmtStart(yyyy + "-" + mm + "-01 00:00:00");
 		sale.setGmtEnd(yyyy + "-" + mm + "-31 23:59:59");
 
-		saleList = saleService.getSaleList(this.getUser().getOrgId(), sale);
+		saleList = saleService.getSaleList(this.getOrg().getOrgId(), sale);
 
 		return SUCCESS;
 	}
 
 	public String detail() {
-		saleDetailList = saleService.getSaleDetailList(this.getUser().getOrgId(), tradeNo);
+		saleDetailList = saleService.getSaleDetailList(this.getOrg().getOrgId(), tradeNo);
 
 		return SUCCESS;
 	}

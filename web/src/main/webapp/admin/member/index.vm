@@ -29,34 +29,6 @@
 			<div class="list-block" style="font-size: 15px;">
 				<ul class="page-settings after-height-0">
 					<li class="row" style="text-align: center;">
-						<a href="$!{env.appUrl}/trade/list.htm?type=tosend" class="col-33 item-link" style="width: 33%;" data-ignore-cache="true">
-							<h3 id="member/index/tosend">0</h3>
-							<div class="color-gray">待发货</div>
-                        </a>
-						<a href="$!{env.appUrl}/trade/list.htm?type=send" class="col-33 item-link" style="width: 33%;" data-ignore-cache="true">
-							<h3 id="member/index/send">0</h3>
-							<div class="color-gray">已发货</div>
-                        </a>
-						<a href="$!{env.appUrl}/trade/list.htm?type=sign" class="col-33 item-link" style="width: 33%;" data-ignore-cache="true">
-							<h3 id="member/index/sign">0</h3>
-							<div class="color-gray">已完成</div>
-                        </a>
-					</li>
-                </ul>
-				<ul>
-					<li>
-						<a href="$!{env.appUrl}/trade/list.htm" class="item-link item-content" data-ignore-cache="true">
-							<div class="item-media"><i class="iconfont icon-text"></i></div>
-							<div class="item-inner">
-								<div class="item-title">全部订单</div>
-							</div>
-						</a>
-					</li>
-				</ul>
-            </div>
-			<div class="list-block" style="font-size: 15px;">
-				<ul class="page-settings after-height-0">
-					<li class="row" style="text-align: center;">
 						<a href="$!{env.appUrl}/cashflow/list.htm" class="col-33 item-link" style="width: 33%;" data-ignore-cache="true">
 							<h3 id="member/index/drAmount">0.00</h3>
 							<div class="color-gray">收入(元)</div>

@@ -34,7 +34,7 @@ $$('form.ajax-submit.portal-index-login-form').on('submitted', function(e) {
 			myApp.hideIndicator();
 			var xhr = e.detail.xhr;
 
-			top.location.href = appUrl + "/user/shop.htm";
+			top.location.href = appUrl + "/user/org.htm";
 		});
 
 $$('form.ajax-submit.portal-index-forgetPassword-form').on('submitted',

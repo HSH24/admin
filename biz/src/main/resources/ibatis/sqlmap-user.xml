@@ -12,6 +12,7 @@
 			   t.user_name AS userName,
 			   t.user_code AS passport,
 			   t.password,
+			   t.org_id AS orgId,
 			   (case when (t.state=1) then 'U' else 'F' END ) AS  state
 		  FROM  oms.auth_user_t t
 		 WHERE  t.user_code = upper(#possport#)
