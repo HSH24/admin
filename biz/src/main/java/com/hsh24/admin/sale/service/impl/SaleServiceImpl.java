@@ -5,6 +5,8 @@ import java.util.List;
 import com.hsh24.admin.api.sale.ISaleService;
 import com.hsh24.admin.api.sale.bo.Sale;
 import com.hsh24.admin.api.sale.bo.SaleDetail;
+import com.hsh24.admin.api.shop.IShopService;
+import com.hsh24.admin.api.shop.bo.Shop;
 import com.hsh24.admin.framework.log.Logger4jCollection;
 import com.hsh24.admin.framework.log.Logger4jExtend;
 import com.hsh24.admin.sale.dao.ISaleDao;
@@ -19,6 +21,8 @@ import com.wideka.weixin.framework.util.LogUtil;
 public class SaleServiceImpl implements ISaleService {
 
 	private Logger4jExtend logger = Logger4jCollection.getLogger(SaleServiceImpl.class);
+
+	private IShopService shopService;
 
 	private ISaleDao saleDao;
 
@@ -43,8 +47,33 @@ public class SaleServiceImpl implements ISaleService {
 
 	@Override
 	public List<Sale> getSaleList(Long orgId, Sale sale) {
-		// TODO Auto-generated method stub
-		return null;
+		if (orgId == null || sale == null) {
+			return null;
+		}
+
+		sale.setOrgId(orgId);
+
+		List<Sale> saleList = null;
+		try {
+			saleList = saleDao.getSaleList(sale);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(sale), e);
+		}
+
+		if (saleList == null || saleList.size() == 0) {
+			return null;
+		}
+
+		for (Sale s : saleList) {
+			Shop shop = shopService.getShop(s.getShopId());
+			if (shop == null) {
+				continue;
+			}
+
+			s.setShopName(shop.getShopName());
+		}
+
+		return saleList;
 	}
 
 	@Override
@@ -57,6 +86,14 @@ public class SaleServiceImpl implements ISaleService {
 	public List<SaleDetail> getSaleDetailList(Long orgId, String shopId, String tradeNo) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public IShopService getShopService() {
+		return shopService;
+	}
+
+	public void setShopService(IShopService shopService) {
+		this.shopService = shopService;
 	}
 
 	public ISaleDao getSaleDao() {

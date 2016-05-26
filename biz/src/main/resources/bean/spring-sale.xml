@@ -10,6 +10,7 @@
 	</bean>
 	
 	<bean id="saleService" class="com.hsh24.admin.sale.service.impl.SaleServiceImpl">
+		<property name="shopService" ref="shopService" />
 		<property name="saleDao" ref="saleDao" />
 		<property name="saleDetailDao" ref="saleDetailDao" />
 	</bean>

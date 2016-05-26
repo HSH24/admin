@@ -22,7 +22,25 @@
 	]]>
 	</select>
 	
-	<select id="getSaleList" parameterClass="sale" resultClass="sale">
+	<select id="getSaleList1" parameterClass="sale" resultClass="sale">
+	<![CDATA[
+		SELECT SUM(p.pay_money) AS amount,
+			   t.org_id AS shopId
+		  FROM oms.ord_order_t t,
+			   oms.ord_order_pay_t p,
+			   dms_tb_org_shop q
+		 WHERE t.order_dt >= date_format(#gmtStart#, '%Y-%m-%d %T')
+		   AND t.order_dt <= date_format(#gmtEnd#, '%Y-%m-%d %T')
+		   AND t.order_id = p.order_id
+		   AND t.org_id = q.shop_id
+		   AND t.order_status = '0005'
+		   AND q.state = 'U'
+		   AND q.org_id = #orgId#
+		  GROUP BY t.org_id
+	]]>
+	</select>
+	
+	<select id="getSaleList2" parameterClass="sale" resultClass="sale">
 	<![CDATA[
 		SELECT p.pay_money AS amount,
 			   t.order_cd AS tradeNo,

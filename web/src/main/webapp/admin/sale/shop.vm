@@ -48,30 +48,21 @@
                 </ul>
             </div>
 			
-			#if($!{saleList})
-			#set($d = '00')
 			<div class="list-block" style="font-size: 14px;">
 				#foreach($sale in $!{saleList})
-				#set($dd = $!stringUtil.substring($!{sale.tradeDate}, 8, 10))
-				#if($d != $dd)
-					#if($d != '00') </ul> #end
-				<div class="content-block-title" style="margin-top: 10px;">$dd日</div>
 				<ul>
-					#set($d = $dd)
-				#end
 					<li>
-						<a href="$!{env.appUrl}/sale/detail.htm?tradeNo=$!{sale.tradeNo}" class="item-link item-content">
-							<div class="item-media"><i class="iconfont icon-goods"></i></div>
+						<a href="$!{env.appUrl}/sale/list.htm?shopId=$!{sale.shopId}" class="item-link item-content">
+							<div class="item-media"><i class="iconfont icon-shop"></i></div>
 							<div class="item-inner">
-								<div class="item-title">线下订单 $!{sale.tradeNo}</div>
+								<div class="item-title">$!{sale.shopName}</div>
 								<div class="item-after">$!formatUtil.getAmountFormat($!{sale.amount})</div>
 							</div>
 						</a>
 					</li>
+                </ul>
 				#end
-				</ul>
             </div>
-			#end
         </div>
     </div>
 </div>

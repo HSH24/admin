@@ -28,6 +28,8 @@ public class Sale extends SearchInfo {
 
 	private Long orgId;
 
+	private String shopName;
+
 	public Long getShopId() {
 		return shopId;
 	}
@@ -66,6 +68,14 @@ public class Sale extends SearchInfo {
 
 	public void setOrgId(Long orgId) {
 		this.orgId = orgId;
+	}
+
+	public String getShopName() {
+		return shopName;
+	}
+
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
 	}
 
 }

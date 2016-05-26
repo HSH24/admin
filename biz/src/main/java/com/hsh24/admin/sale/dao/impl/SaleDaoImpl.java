@@ -21,7 +21,11 @@ public class SaleDaoImpl extends BaseDaoImpl implements ISaleDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Sale> getSaleList(Sale sale) {
-		return (List<Sale>) getSqlMapClientTemplate().queryForList("sale.getSaleList", sale);
+		if (sale.getShopId() == null) {
+			return (List<Sale>) getSqlMapClientTemplate().queryForList("sale.getSaleList1", sale);
+		} else {
+			return (List<Sale>) getSqlMapClientTemplate().queryForList("sale.getSaleList2", sale);
+		}
 	}
 
 }

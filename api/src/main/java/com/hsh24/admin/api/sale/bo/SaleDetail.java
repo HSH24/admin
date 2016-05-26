@@ -1,11 +1,15 @@
 package com.hsh24.admin.api.sale.bo;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author JiakunXu
  * 
  */
-public class SaleDetail {
+public class SaleDetail implements Serializable {
+
+	private static final long serialVersionUID = -9192927808211855018L;
 
 	private String itemName;
 
