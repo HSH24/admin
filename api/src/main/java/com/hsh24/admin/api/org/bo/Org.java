@@ -1,11 +1,15 @@
 package com.hsh24.admin.api.org.bo;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author JiakunXu
  * 
  */
-public class Org {
+public class Org implements Serializable {
+
+	private static final long serialVersionUID = 7121309936898289836L;
 
 	private Long orgId;
 
