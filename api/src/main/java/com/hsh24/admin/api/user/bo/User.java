@@ -11,7 +11,7 @@ public class User extends SearchInfo {
 
 	private static final long serialVersionUID = 5804990636185340805L;
 
-	private String userId;
+	private Long userId;
 
 	/**
 	 * 用户名.
@@ -28,15 +28,17 @@ public class User extends SearchInfo {
 	 */
 	private String password;
 
+	private Long orgId;
+
 	private String state;
 
 	private String modifyUser;
 
-	public String getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
@@ -62,6 +64,14 @@ public class User extends SearchInfo {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Long getOrgId() {
+		return orgId;
+	}
+
+	public void setOrgId(Long orgId) {
+		this.orgId = orgId;
 	}
 
 	public String getState() {
