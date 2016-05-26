@@ -50,7 +50,7 @@
 			
 			<div class="list-block" style="font-size: 14px;">
 				#foreach($sale in $!{saleList})
-				<ul>
+				<ul class="after-height-0">
 					<li>
 						<a href="$!{env.appUrl}/sale/list.htm?shopId=$!{sale.shopId}" class="item-link item-content">
 							<div class="item-media"><i class="iconfont icon-shop"></i></div>

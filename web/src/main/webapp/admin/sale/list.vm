@@ -60,7 +60,7 @@
 					#set($d = $dd)
 				#end
 					<li>
-						<a href="$!{env.appUrl}/sale/detail.htm?tradeNo=$!{sale.tradeNo}" class="item-link item-content">
+						<a href="$!{env.appUrl}/sale/detail.htm?shopId=$!{shopId}&tradeNo=$!{sale.tradeNo}" class="item-link item-content">
 							<div class="item-media"><i class="iconfont icon-goods"></i></div>
 							<div class="item-inner">
 								<div class="item-title">线下订单 $!{sale.tradeNo}</div>

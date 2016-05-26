@@ -19,6 +19,8 @@ public class SaleDetail implements Serializable {
 
 	// >>>>>>>>>>以下是辅助属性<<<<<<<<<<
 
+	private Long orgId;
+
 	private Long shopId;
 
 	private String tradeNo;
@@ -45,6 +47,14 @@ public class SaleDetail implements Serializable {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	public Long getOrgId() {
+		return orgId;
+	}
+
+	public void setOrgId(Long orgId) {
+		this.orgId = orgId;
 	}
 
 	public Long getShopId() {

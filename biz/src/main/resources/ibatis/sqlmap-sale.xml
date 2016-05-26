@@ -46,11 +46,15 @@
 			   t.order_cd AS tradeNo,
 			   DATE_FORMAT(t.order_dt, '%Y-%m-%d %T') AS tradeDate
 		  FROM oms.ord_order_t t,
-			   oms.ord_order_pay_t p
+			   oms.ord_order_pay_t p,
+			   dms_tb_org_shop q
 		 WHERE t.order_dt >= date_format(#gmtStart#, '%Y-%m-%d %T')
 		   AND t.order_dt <= date_format(#gmtEnd#, '%Y-%m-%d %T')
 		   AND t.order_id = p.order_id
+		   AND t.org_id = q.shop_id
 		   AND t.order_status = '0005'
+		   AND q.state = 'U'
+		   AND q.org_id = #orgId#
 		   AND t.org_id = #shopId#
 		  ORDER BY t.order_dt DESC
 	]]>

@@ -86,11 +86,15 @@ public class SaleAction extends BaseAction {
 		sale.setGmtStart(yyyy + "-" + mm + "-01 00:00:00");
 		sale.setGmtEnd(yyyy + "-" + mm + "-31 23:59:59");
 
-		saleList = saleService.getSaleList(this.getOrg().getOrgId(), sale);
+		saleList = saleService.getSaleList(this.getOrg().getOrgId(), shopId, sale);
 
 		return SUCCESS;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String detail() {
 		saleDetailList = saleService.getSaleDetailList(this.getOrg().getOrgId(), shopId, tradeNo);
 
