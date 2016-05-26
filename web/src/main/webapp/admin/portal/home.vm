@@ -46,7 +46,7 @@
 										</a>
 									</div>
 									<div class="col-50" style="padding-left: 5px;">
-										<a href="$!{env.appUrl}/cashflow/list.htm" class="small-box" style="background-color: #F2784B; color: #FFFFFF;" data-ignore-cache="true">
+										<a href="$!{env.appUrl}/cashflow/shop.htm" class="small-box" style="background-color: #F2784B; color: #FFFFFF;" data-ignore-cache="true">
 											<div class="inner">
 												<h3>资金</h3>
 												<p id="portal/home/cashflow">保证金：50,000<br/>余额：0.00</p>

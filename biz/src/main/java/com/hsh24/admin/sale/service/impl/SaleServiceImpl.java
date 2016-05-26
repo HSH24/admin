@@ -56,6 +56,7 @@ public class SaleServiceImpl implements ISaleService {
 		sale.setOrgId(orgId);
 
 		List<Sale> saleList = null;
+		
 		try {
 			saleList = saleDao.getSaleList(sale);
 		} catch (Exception e) {

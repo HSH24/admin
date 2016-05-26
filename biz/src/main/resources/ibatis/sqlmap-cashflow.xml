@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="cashflow">
+	
+	<typeAlias alias="cashflow" type="com.hsh24.admin.api.cashflow.bo.Cashflow" />
+	
+	<select id="getCashflowStats" parameterClass="cashflow" resultClass="cashflow">
+	<![CDATA[
+		SELECT SUM(t.cr_amount) AS crAmount,
+			   SUM(t.dr_amount) AS drAmount
+		  FROM dms_tb_cashflow t, dms_tb_cashflow_cat p
+		 WHERE t.cashflow_cid = p.cashflow_cid
+		   AND t.state = 'U'
+		   AND p.state = 'U'
+		   AND t.shop_id = #shopId#
+	]]>
+		<dynamic>
+			<isNotEmpty property="code" prepend="and">
+			<![CDATA[ p.cashflow_code = #code# ]]>
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	
+	<select id="getCashflowList1" parameterClass="cashflow" resultClass="cashflow">
+	<![CDATA[
+		SELECT SUM(t.cr_amount) AS crAmount,
+			   SUM(t.dr_amount) AS drAmount,
+			   t.shop_id AS shopId
+		  FROM dms_tb_cashflow t, dms_tb_org_shop p
+		 WHERE t.shop_id = p.shop_id
+		   AND t.state = 'U'
+		   AND p.state = 'U'
+		   AND p.org_id = #orgId#
+		  GROUP BY t.shop_id
+	]]>
+	</select>
+	
+	<select id="getCashflowList2" parameterClass="cashflow" resultClass="cashflow">
+	<![CDATA[
+		SELECT t.cashflow_id AS cashflowId,
+			   t.bank_acct_id AS bankAcctId,
+			   t.summary,
+			   t.cr_amount AS crAmount,
+			   t.dr_amount AS drAmount,
+			   DATE_FORMAT(t.trade_date, '%Y-%m-%d %T') AS tradeDate,
+			   t.trade_no AS tradeNo
+		  FROM dms_tb_cashflow t, dms_tb_org_shop p
+		 WHERE t.shop_id = p.shop_id
+		   AND t.state = 'U'
+		   AND p.state = 'U'
+		   AND p.org_id = #orgId#
+		   AND t.shop_id = #shopId#
+	]]>
+	</select>
+	
+</sqlMap>
