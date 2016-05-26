@@ -26,6 +26,8 @@ public class SaleAction extends BaseAction {
 
 	private List<SaleDetail> saleDetailList;
 
+	private String shopId;
+
 	/**
 	 * 首页 销售统计.
 	 * 
@@ -57,6 +59,23 @@ public class SaleAction extends BaseAction {
 	}
 
 	/**
+	 * 销售列表 维度：店铺.
+	 * 
+	 * @return
+	 */
+	public String shop() {
+		Sale sale = new Sale();
+		String yyyy = String.valueOf(DateUtil.getYear());
+		String mm = String.valueOf(DateUtil.getMonth());
+		sale.setGmtStart(yyyy + "-" + mm + "-01 00:00:00");
+		sale.setGmtEnd(yyyy + "-" + mm + "-31 23:59:59");
+
+		saleList = saleService.getSaleList(this.getOrg().getOrgId(), sale);
+
+		return SUCCESS;
+	}
+
+	/**
 	 * 
 	 * @return
 	 */
@@ -73,7 +92,7 @@ public class SaleAction extends BaseAction {
 	}
 
 	public String detail() {
-		saleDetailList = saleService.getSaleDetailList(this.getOrg().getOrgId(), tradeNo);
+		saleDetailList = saleService.getSaleDetailList(this.getOrg().getOrgId(), shopId, tradeNo);
 
 		return SUCCESS;
 	}
@@ -108,6 +127,14 @@ public class SaleAction extends BaseAction {
 
 	public void setSaleDetailList(List<SaleDetail> saleDetailList) {
 		this.saleDetailList = saleDetailList;
+	}
+
+	public String getShopId() {
+		return shopId;
+	}
+
+	public void setShopId(String shopId) {
+		this.shopId = shopId;
 	}
 
 }

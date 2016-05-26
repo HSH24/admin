@@ -34,7 +34,7 @@
 							<section class="content">
 								<div class="row no-gutter" style="margin-bottom: 10px;">
 									<div class="col-50" style="padding-right: 5px;">
-										<a href="$!{env.appUrl}/sale/list.htm" class="small-box" style="background-color: #5BC39D; color: #FFFFFF;" data-ignore-cache="true">
+										<a href="$!{env.appUrl}/sale/shop.htm" class="small-box" style="background-color: #5BC39D; color: #FFFFFF;" data-ignore-cache="true">
 											<div class="inner">
 												<h3>销售</h3>
 												<p id="portal/home/sale">今天：0.00<br/>本月：0.00</p>

@@ -13,6 +13,9 @@ public class Sale extends SearchInfo {
 
 	private static final long serialVersionUID = 4733426047070262299L;
 
+	/**
+	 * 店铺.
+	 */
 	private Long shopId;
 
 	private String tradeNo;
@@ -20,6 +23,10 @@ public class Sale extends SearchInfo {
 	private BigDecimal amount;
 
 	private String tradeDate;
+
+	// >>>>>>>>>>以下是辅助属性<<<<<<<<<<
+
+	private Long orgId;
 
 	public Long getShopId() {
 		return shopId;
@@ -51,6 +58,14 @@ public class Sale extends SearchInfo {
 
 	public void setTradeDate(String tradeDate) {
 		this.tradeDate = tradeDate;
+	}
+
+	public Long getOrgId() {
+		return orgId;
+	}
+
+	public void setOrgId(Long orgId) {
+		this.orgId = orgId;
 	}
 
 }

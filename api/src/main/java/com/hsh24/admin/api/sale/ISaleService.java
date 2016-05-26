@@ -31,9 +31,19 @@ public interface ISaleService {
 	/**
 	 * 
 	 * @param orgId
+	 * @param shopId
+	 * @param sale
+	 * @return
+	 */
+	List<Sale> getSaleList(Long orgId, String shopId, Sale sale);
+
+	/**
+	 * 
+	 * @param orgId
+	 * @param shopId
 	 * @param tradeNo
 	 * @return
 	 */
-	List<SaleDetail> getSaleDetailList(Long orgId, String tradeNo);
+	List<SaleDetail> getSaleDetailList(Long orgId, String shopId, String tradeNo);
 
 }
