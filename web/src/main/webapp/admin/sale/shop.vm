@@ -17,8 +17,7 @@
 			<div class="list-block" style="font-size: 15px;">
 				<ul class="page-settings">
 					<li class="row" style="text-align: center;">
-						<div class="col-33" style="width: 33%;"  id="aaabbbccc">
-							<input type="text" id="month_select"></input>
+						<div class="col-33" style="width: 33%;" id="picker-year-month">
 							<h3 id="sale/shop/month">5月</h3>
 							<div class="color-gray" id="sale/shop/year">2015年</div>
                         </div>

@@ -1,7 +1,10 @@
+var sale_shop_flag = true;
+
 myApp.onPageInit('sale.shop', function(page) {
 
 			myPicker = myApp.picker({
-						input : '#month_select',
+						input : '#picker-year-month',
+						closeByOutsideClick : false,
 						rotateEffect : true,
 						cols : [{
 									textAlign : 'left',
@@ -16,11 +19,25 @@ myApp.onPageInit('sale.shop', function(page) {
 						}
 					});
 
-			$$('#aaabbbccc').on('click', function() {
+			$$('#picker-year-month').on('click', function() {
 						myPicker.open();
+						sale_shop_flag = false;
+					});
+
+			$$('.page-content').on('click', function() {
+						if (sale_shop_flag) {
+							myPicker.close();
+						} else {
+							sale_shop_flag = true;
+						}
+
 					});
 
 			sale_shop_stats();
+		});
+
+myApp.onPageBack('sale.shop', function(page) {
+			myPicker.close();
 		});
 
 function sale_shop_stats() {

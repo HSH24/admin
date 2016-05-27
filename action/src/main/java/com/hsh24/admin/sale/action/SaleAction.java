@@ -28,9 +28,9 @@ public class SaleAction extends BaseAction {
 
 	private String shopId;
 
-	private String curMonth;
+	private int year;
 
-	private String curYear;
+	private int month;
 
 	/**
 	 * 首页 销售统计.
@@ -68,11 +68,13 @@ public class SaleAction extends BaseAction {
 	 * @return
 	 */
 	public String shop() {
+		year = DateUtil.getYear();
+		month = DateUtil.getMonth();
+
+		String yyyy = String.valueOf(year);
+		String mm = String.valueOf(month);
+
 		Sale sale = new Sale();
-		String yyyy = String.valueOf(DateUtil.getYear());
-		String mm = String.valueOf(DateUtil.getMonth());
-		curYear = yyyy;
-		curMonth = mm;
 		sale.setGmtStart(yyyy + "-" + mm + "-01 00:00:00");
 		sale.setGmtEnd(yyyy + "-" + mm + "-31 23:59:59");
 
@@ -147,20 +149,20 @@ public class SaleAction extends BaseAction {
 		this.shopId = shopId;
 	}
 
-	public String getCurMonth() {
-		return curMonth;
+	public int getYear() {
+		return year;
 	}
 
-	public void setCurMonth(String curMonth) {
-		this.curMonth = curMonth;
+	public void setYear(int year) {
+		this.year = year;
 	}
 
-	public String getCurYear() {
-		return curYear;
+	public int getMonth() {
+		return month;
 	}
 
-	public void setCurYear(String curYear) {
-		this.curYear = curYear;
+	public void setMonth(int month) {
+		this.month = month;
 	}
 
 }
