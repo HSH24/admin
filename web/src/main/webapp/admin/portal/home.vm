@@ -163,10 +163,10 @@
 		#JSM(["framework7", "weixin", "jquery", "common"])
 		#JS_ENV_VAL()
 		<!-- 打包合并 -->
-		<script src="$!{env.imgUrl}/js/portal/home.js"></script>
+		<script src="$!{env.imgUrl}/js/portal/home.js?t=20150827"></script>
 		<script src="$!{env.imgUrl}/js/sale/shop.js" async="async"></script>
 		<script src="$!{env.imgUrl}/js/sale/list.js" async="async"></script>
-		<script src="$!{env.imgUrl}/js/member/index.js" async="async"></script>
+		<script src="$!{env.imgUrl}/js/member/index.js?t=20150827" async="async"></script>
 		<script src="$!{env.imgUrl}/js/trade/list.js" async="async"></script>
 		<script src="$!{env.imgUrl}/js/cashflow/shop.js" async="async"></script>
 		<script src="$!{env.imgUrl}/js/cashflow/list.js" async="async"></script>

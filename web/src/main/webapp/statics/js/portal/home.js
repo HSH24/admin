@@ -52,6 +52,7 @@ $$('#href-5').on('click', function() {
 						});
 			} else {
 				// 刷新
+				member_index_stats();
 			}
 		});
 
