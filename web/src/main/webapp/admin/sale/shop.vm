@@ -19,7 +19,7 @@
 					<li class="row" style="text-align: center;">
 						<div class="col-33" style="width: 33%;">
 							<div style="margin: 0.6rem 0 0 0;">
-								<input type="text" style="margin: 0 auto; text-align: center;" id="picker-year-month" value="2015年 5月"></input>
+								<input type="text" style="margin: 0 auto; text-align: center;" id="sale/shop/date" value="2015年 5月"></input>
                             </div>
                         </div>
 						<div class="col-33" style="width: 33%;">

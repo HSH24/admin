@@ -1,7 +1,6 @@
 myApp.onPageInit('sale.shop', function(page) {
-
-			myPicker = myApp.picker({
-						input : '#picker-year-month',
+			myApp.picker({
+						input : '#sale/shop/date',
 						rotateEffect : true,
 						cols : [{
 									textAlign : 'left',
