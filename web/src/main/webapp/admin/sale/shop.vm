@@ -19,7 +19,7 @@
 					<li class="row" style="text-align: center;">
 						<div class="col-33" style="width: 33%;">
 							<div style="margin: 0.6rem 0 0 0;">
-    							<select style="margin: 0 auto; width: 35px; height: 100%;">
+    							<select  style="margin: 0 auto; width: 35px; height: 100%;" id="month_select">
 									<option>01月</option>
 									<option>02月</option>
 									<option>03月</option>
@@ -34,7 +34,7 @@
 									<option>12月</option>
     							</select>
                             </div>
-							<div class="color-gray">2016年</div>
+							<div class="color-gray">$!{curYear}年</div>
                         </div>
 						<div class="col-33" style="width: 33%;">
 							<h3 id="sale/index/a">0.00</h3>

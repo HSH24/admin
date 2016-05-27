@@ -22,7 +22,7 @@ var mainView = myApp.addView('.view-main', {
 			dynamicNavbar : true
 		});
 $$('#href-1').on('click', function() {
-			// portal_home_stats();
+		 portal_home_stats();
 		});
 
 // ==============================
@@ -94,4 +94,4 @@ function portal_home_stats() {
 
 }
 
-// portal_home_stats();
+portal_home_stats();
