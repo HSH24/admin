@@ -14,9 +14,7 @@
 			   t.properties_name AS propertiesName,
 			   t.quantity,
 			   t.price,
-			   t.change,
-			   t.item_id AS itemId,
-			   t.sku_id AS skuId
+			   t.change
 		  FROM dms_tb_order t
 		 WHERE t.state = 'U'
 		   AND t.trade_id = #tradeId#
