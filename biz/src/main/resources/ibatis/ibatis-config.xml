@@ -40,6 +40,8 @@
 	<sqlMap resource="ibatis/sqlmap-shop.xml" />
 	<sqlMap resource="ibatis/sqlmap-stock.xml" />
 	<sqlMap resource="ibatis/sqlmap-supplier.xml" />
+	<sqlMap resource="ibatis/sqlmap-trade.order.xml" />
+	<sqlMap resource="ibatis/sqlmap-trade.xml" />
 	<sqlMap resource="ibatis/sqlmap-user.xml" />
     
 </sqlMapConfig>
