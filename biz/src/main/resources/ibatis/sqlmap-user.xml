@@ -27,7 +27,7 @@
 			   t.password,
 			   t.org_id AS orgId
 		  FROM  oms.auth_user_t t
-		 WHERE t.state = 'U'
+		 WHERE t.state = '1'
 		   AND t.user_id = #userId#
 	]]>
 	</select>
