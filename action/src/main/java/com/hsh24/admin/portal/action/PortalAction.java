@@ -1,5 +1,6 @@
 package com.hsh24.admin.portal.action;
 
+import com.hsh24.admin.api.user.bo.User;
 import com.hsh24.admin.framework.action.BaseAction;
 
 /**
@@ -17,6 +18,11 @@ public class PortalAction extends BaseAction {
 	 * @return
 	 */
 	public String index() {
+		User user = this.getUser();
+		if (user != null) {
+			return NONE;
+		}
+
 		return SUCCESS;
 	}
 
