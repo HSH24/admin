@@ -60,7 +60,7 @@
                                 </div>
 								<div class="row no-gutter" style="margin-bottom: 10px;">
 									<div class="col-50" style="padding-right: 5px;">
-										<a href="$!{env.appUrl}/stock/list.htm" class="small-box" style="background-color: #B68FCC; color: #FFFFFF;" data-ignore-cache="true">
+										<a href="$!{env.appUrl}/stock/shop.htm" class="small-box" style="background-color: #B68FCC; color: #FFFFFF;" data-ignore-cache="true">
 											<div class="inner">
 												<h3>库存</h3>
 												<p id="portal/home/stock">数量：<br/>0</p>

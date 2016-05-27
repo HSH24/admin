@@ -1,0 +1,23 @@
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+ "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="{http://admin}admin$stock"
+		extends="{http://admin}admin$framework" namespace="/stock">
+		
+		<action name="stats" class="stockAction" method="stats">
+			<interceptor-ref name="authenticationStack" />
+		</action>
+		
+		<action name="shop" class="stockAction" method="shop">
+			<interceptor-ref name="authenticationStack" />
+			<result name="success">/admin/stock/shop.vm</result>
+		</action>
+		
+		<action name="list" class="stockAction" method="list">
+			<interceptor-ref name="authenticationStack" />
+			<result name="success">/admin/stock/list.vm</result>
+		</action>
+		
+	</package>
+</struts>
