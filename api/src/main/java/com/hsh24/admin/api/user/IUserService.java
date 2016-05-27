@@ -23,12 +23,19 @@ public interface IUserService {
 	String ERROR_EXIST_MESSAGE = "操作失败，已存在！";
 
 	/**
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	User getUser(Long userId);
+
+	/**
 	 * 根据登陆帐号获取用户信息(存在缓存).
 	 * 
 	 * @param passport
 	 * @return
 	 */
-	User getUserByPassport(String passport);
+	User getUser(String passport);
 
 	/**
 	 * 根据登陆帐号获取用户信息(不存在缓存).

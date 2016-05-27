@@ -33,7 +33,9 @@ var view3 = myApp.addView('#view-3', {
 $$('#href-3').on('click', function() {
 			if (view3.history.length == 1) {
 				view3.router.load({
-							url : appUrl + "/item/list.htm"
+							url : appUrl + "/shop/list.htm",
+							ignoreCache : true,
+							reload : true
 						});
 			}
 		});
@@ -54,7 +56,7 @@ $$('#href-5').on('click', function() {
 $$('#view_3_click').on('click', function() {
 			if (view3.history.length == 1) {
 				view3.router.load({
-							url : appUrl + "/mall/list.htm",
+							url : appUrl + "/shop/list.htm",
 							ignoreCache : true,
 							reload : true
 						});

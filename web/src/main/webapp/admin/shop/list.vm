@@ -2,8 +2,8 @@
 <!-- Top Navbar-->
 <div class="navbar">
 	<div class="navbar-inner">
-		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
-		<div class="center sliding">店铺</div>
+		<div class="left"></div>
+		<div class="center sliding">便民亭</div>
 		<div class="right">
 			<!-- Right link contains only icon - additional "icon-only" class-->
 		</div>
@@ -11,7 +11,7 @@
 </div>
 <div class="pages">
 	<!-- Page, data-page contains page name-->
-	<div data-page="shop.list" class="page no-tabbar">
+	<div data-page="shop.list" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
 			<div class="list-block accordion-list" style="font-size: 14px;">
@@ -19,15 +19,18 @@
 					#foreach($shop in $!{shopList})
 					<li class="accordion-item">
 						<a href="#" class="item-content item-link">
-							<div class="item-media"><i class="iconfont icon-goods"></i></div>
+							<div class="item-media"><i class="iconfont icon-shop"></i></div>
 							<div class="item-inner">
-								<div class="item-title">$!{stock.itemName}</div>
-								<div class="item-after">$!{stock.stock}</div>
+								<div class="item-title">$!{shop.shopName}</div>
+								<div class="item-after"></div>
 							</div>
 						</a>
 						<div class="accordion-item-content">
 							<div class="content-block">
-                                <p>$!{stock.stock}</p>
+                                <p>店铺：$!{shop.shopName}</p>
+								<p>地址：$!{shop.address}</p>
+								<p>店主：$!{shop.userName}</p>
+								<p>联系方式：$!{shop.tel}</p>
 							</div>
 						</div>
 					</li>

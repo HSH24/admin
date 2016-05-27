@@ -19,11 +19,21 @@ public class ShopAction extends BaseAction {
 
 	private List<Shop> shopList;
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String stats() {
 		return SUCCESS;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String list() {
+		shopList = shopService.getShopList(this.getOrg().getOrgId());
+
 		return SUCCESS;
 	}
 

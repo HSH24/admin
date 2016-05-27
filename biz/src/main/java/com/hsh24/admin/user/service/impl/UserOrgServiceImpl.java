@@ -25,7 +25,7 @@ public class UserOrgServiceImpl implements IUserOrgService {
 			return null;
 		}
 
-		User user = userService.getUserByPassport(passport);
+		User user = userService.getUser(passport);
 		if (user == null) {
 			return null;
 		}
