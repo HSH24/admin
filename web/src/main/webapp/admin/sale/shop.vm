@@ -17,9 +17,10 @@
 			<div class="list-block" style="font-size: 15px;">
 				<ul class="page-settings">
 					<li class="row" style="text-align: center;">
-						<div class="col-33" style="width: 33%;" id="picker-year-month">
-							<h3 id="sale/shop/month">5月</h3>
-							<div class="color-gray" id="sale/shop/year">2015年</div>
+						<div class="col-33" style="width: 33%;">
+							<div style="margin: 0.6rem 0 0 0;">
+								<input type="text" style="margin: 0 auto; text-align: center;" id="picker-year-month" value="2015年 5月"></input>
+                            </div>
                         </div>
 						<div class="col-33" style="width: 33%;">
 							<h3 id="sale/shop/a">0.00</h3>

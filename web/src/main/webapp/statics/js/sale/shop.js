@@ -1,10 +1,7 @@
-var sale_shop_flag = true;
-
 myApp.onPageInit('sale.shop', function(page) {
 
 			myPicker = myApp.picker({
 						input : '#picker-year-month',
-						closeByOutsideClick : false,
 						rotateEffect : true,
 						cols : [{
 									textAlign : 'left',
@@ -14,30 +11,16 @@ myApp.onPageInit('sale.shop', function(page) {
 											'6月', '7月', '8月', '9月', '10月',
 											'11月', '12月']
 								}],
-						onChange : function(picker, values, displayValues) {
-							var a = 1;
+						onChange : function(p, values, displayValues) {
+							// $$('#sale/shop/month').html(values[1] + '月');
+							// $$('#sale/shop/year').html(values[0] + '年');
+						},
+						onOpen : function(p) {
+							p.setValue(['2015年', '5月']);
 						}
-					});
-
-			$$('#picker-year-month').on('click', function() {
-						myPicker.open();
-						sale_shop_flag = false;
-					});
-
-			$$('.page-content').on('click', function() {
-						if (sale_shop_flag) {
-							myPicker.close();
-						} else {
-							sale_shop_flag = true;
-						}
-
 					});
 
 			sale_shop_stats();
-		});
-
-myApp.onPageBack('sale.shop', function(page) {
-			myPicker.close();
 		});
 
 function sale_shop_stats() {
