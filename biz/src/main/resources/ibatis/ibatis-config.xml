@@ -39,6 +39,7 @@
 	<sqlMap resource="ibatis/sqlmap-sale.xml" />
 	<sqlMap resource="ibatis/sqlmap-shop.xml" />
 	<sqlMap resource="ibatis/sqlmap-stock.xml" />
+	<sqlMap resource="ibatis/sqlmap-supplier.xml" />
 	<sqlMap resource="ibatis/sqlmap-user.xml" />
     
 </sqlMapConfig>
