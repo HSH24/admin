@@ -12,12 +12,12 @@ import com.hsh24.admin.api.supplier.ISupplierService;
 import com.hsh24.admin.api.supplier.bo.Supplier;
 import com.hsh24.admin.api.trade.IOrderService;
 import com.hsh24.admin.api.trade.ITradeService;
+import com.hsh24.admin.api.trade.bo.Order;
 import com.hsh24.admin.api.trade.bo.Trade;
 import com.hsh24.admin.framework.log.Logger4jCollection;
 import com.hsh24.admin.framework.log.Logger4jExtend;
 import com.hsh24.admin.framework.util.LogUtil;
 import com.hsh24.admin.trade.dao.ITradeDao;
-import com.hsh24.dms.api.trade.bo.Order;
 
 /**
  * 
@@ -176,7 +176,13 @@ public class TradeServiceImpl implements ITradeService {
 		}
 		t.setTradeNo(tradeNo.trim());
 
-		Trade trade = getTrade(t);
+		Trade trade = null;
+
+		try {
+			trade = tradeDao.getTrade(trade);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(trade), e);
+		}
 
 		if (trade == null) {
 			return null;
@@ -188,7 +194,7 @@ public class TradeServiceImpl implements ITradeService {
 			trade.setSupName(supplier.getSupName());
 		}
 
-		List<Order> orderList = orderService.getOrderList(shopId, trade.getTradeId());
+		List<Order> orderList = orderService.getOrderList(trade.getShopId(), trade.getTradeId());
 
 		if (orderList != null && orderList.size() > 0) {
 			trade.setOrderList(orderList);

@@ -34,4 +34,9 @@ public class TradeDaoImpl extends BaseDaoImpl implements ITradeDao {
 		}
 	}
 
+	@Override
+	public Trade getTrade(Trade trade) {
+		return (Trade) getSqlMapClientTemplate().queryForObject("trade.getTrade", trade);
+	}
+
 }

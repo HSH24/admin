@@ -16,6 +16,13 @@ public interface ISupplierDao {
 	 * @param supplier
 	 * @return
 	 */
+	Supplier getSupplier(Supplier supplier);
+
+	/**
+	 * 
+	 * @param supplier
+	 * @return
+	 */
 	List<Supplier> getSupplierList(Supplier supplier);
 
 }

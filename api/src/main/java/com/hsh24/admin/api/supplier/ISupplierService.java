@@ -16,6 +16,13 @@ public interface ISupplierService {
 	 * @param supId
 	 * @return
 	 */
+	Supplier getSupplier(Long supId);
+
+	/**
+	 * 
+	 * @param supId
+	 * @return
+	 */
 	Map<Long, Supplier> getSupplier(String[] supId);
 
 }

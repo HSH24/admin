@@ -6,6 +6,16 @@
 	
 	<typeAlias alias="supplier" type="com.hsh24.admin.api.supplier.bo.Supplier" />
 	
+	<select id="getSupplier" parameterClass="supplier" resultClass="supplier">
+	<![CDATA[
+		SELECT t.sup_id AS supId,
+			   t.sup_name AS supName
+		  FROM oms.dms_vw_supplier t
+		 WHERE t.state = 'U'
+		   AND t.sup_id = #supId#
+	]]>
+	</select>
+	
 	<select id="getSupplierList" parameterClass="supplier" resultClass="supplier">
 	<![CDATA[
 		SELECT t.sup_id AS supId,

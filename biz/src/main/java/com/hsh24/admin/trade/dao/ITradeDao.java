@@ -33,4 +33,11 @@ public interface ITradeDao {
 	 */
 	List<Trade> getTradeList(Trade trade);
 
+	/**
+	 * 
+	 * @param trade
+	 * @return
+	 */
+	Trade getTrade(Trade trade);
+
 }

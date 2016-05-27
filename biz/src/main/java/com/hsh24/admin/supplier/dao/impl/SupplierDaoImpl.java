@@ -13,6 +13,11 @@ import com.hsh24.admin.supplier.dao.ISupplierDao;
  */
 public class SupplierDaoImpl extends BaseDaoImpl implements ISupplierDao {
 
+	@Override
+	public Supplier getSupplier(Supplier supplier) {
+		return (Supplier) getSqlMapClientTemplate().queryForObject("supplier.getSupplier", supplier);
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Supplier> getSupplierList(Supplier supplier) {
