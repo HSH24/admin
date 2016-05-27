@@ -23,6 +23,13 @@ public interface IShopDao {
 	 * @param shop
 	 * @return
 	 */
+	int getOrgShopCount(Shop shop);
+
+	/**
+	 * 
+	 * @param shop
+	 * @return
+	 */
 	List<Shop> getOrgShopList(Shop shop);
 
 }

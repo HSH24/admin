@@ -18,6 +18,15 @@
 	]]>
 	</select>
 	
+	<select id="getOrgShopCount" parameterClass="shop" resultClass="java.lang.Integer">
+	<![CDATA[
+		SELECT COUNT(1)
+		  FROM dms_tb_org_shop t
+		 WHERE t.STATE = 'U'
+		   AND t.org_id = #orgId#
+	]]>
+	</select>
+	
 	<select id="getOrgShopList" parameterClass="shop" resultClass="shop">
 	<![CDATA[
 		SELECT t.shop_id AS shopId

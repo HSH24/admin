@@ -24,7 +24,11 @@ public class ShopAction extends BaseAction {
 	 * @return
 	 */
 	public String stats() {
-		return SUCCESS;
+		int count = shopService.getShopCount(this.getOrg().getOrgId());
+
+		this.setResourceResult(count + "&" + count);
+
+		return RESOURCE_RESULT;
 	}
 
 	/**

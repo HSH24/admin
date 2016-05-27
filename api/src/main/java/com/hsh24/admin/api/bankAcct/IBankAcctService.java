@@ -11,10 +11,10 @@ public interface IBankAcctService {
 
 	/**
 	 * 
-	 * @param shopId
+	 * @param orgId
 	 * @param accCode
 	 * @return
 	 */
-	BankAcct getBankAcct(Long shopId, String accCode);
+	BankAcct getBankAcctStats(Long orgId, String accCode);
 
 }

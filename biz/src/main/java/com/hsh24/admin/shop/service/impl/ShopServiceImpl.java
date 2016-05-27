@@ -75,6 +75,18 @@ public class ShopServiceImpl implements IShopService {
 	}
 
 	@Override
+	public int getShopCount(Long orgId) {
+		if (orgId == null) {
+			return 0;
+		}
+
+		Shop shop = new Shop();
+		shop.setOrgId(orgId);
+
+		return getOrgShopCount(shop);
+	}
+
+	@Override
 	public List<Shop> getShopList(Long orgId) {
 		if (orgId == null) {
 			return null;
@@ -107,6 +119,21 @@ public class ShopServiceImpl implements IShopService {
 		}
 
 		return shopList;
+	}
+
+	/**
+	 * 
+	 * @param shop
+	 * @return
+	 */
+	private int getOrgShopCount(Shop shop) {
+		try {
+			return shopDao.getOrgShopCount(shop);
+		} catch (Exception e) {
+			logger.error(e);
+		}
+
+		return 0;
 	}
 
 	/**

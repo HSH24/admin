@@ -15,10 +15,11 @@ public interface ISaleService {
 	/**
 	 * 
 	 * @param orgId
+	 * @param shopId
 	 * @param sale
 	 * @return
 	 */
-	Sale getStats(Long orgId, Sale sale);
+	Sale getStats(Long orgId, String shopId, Sale sale);
 
 	/**
 	 * 

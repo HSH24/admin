@@ -27,9 +27,9 @@ public class SaleAction extends BaseAction {
 	private List<SaleDetail> saleDetailList;
 
 	private String shopId;
-	
+
 	private String curMonth;
-	
+
 	private String curYear;
 
 	/**
@@ -45,7 +45,7 @@ public class SaleAction extends BaseAction {
 		String date = DateUtil.getNowDateStr();
 		sale.setGmtStart(date + " 00:00:00");
 		sale.setGmtEnd(date + " 23:59:59");
-		sale = saleService.getStats(this.getOrg().getOrgId(), sale);
+		sale = saleService.getStats(this.getOrg().getOrgId(), shopId, sale);
 		sb.append(sale == null ? "0.00" : FormatUtil.getAmountFormat(sale.getAmount())).append("&");
 
 		sale = new Sale();
@@ -54,7 +54,7 @@ public class SaleAction extends BaseAction {
 		String mm = String.valueOf(DateUtil.getMonth());
 		sale.setGmtStart(yyyy + "-" + mm + "-01 00:00:00");
 		sale.setGmtEnd(yyyy + "-" + mm + "-31 23:59:59");
-		sale = saleService.getStats(this.getOrg().getOrgId(), sale);
+		sale = saleService.getStats(this.getOrg().getOrgId(), shopId, sale);
 		sb.append(sale == null ? "0.00" : FormatUtil.getAmountFormat(sale.getAmount()));
 
 		this.setResourceResult(sb.toString());
@@ -71,7 +71,7 @@ public class SaleAction extends BaseAction {
 		Sale sale = new Sale();
 		String yyyy = String.valueOf(DateUtil.getYear());
 		String mm = String.valueOf(DateUtil.getMonth());
-		curYear =yyyy;
+		curYear = yyyy;
 		curMonth = mm;
 		sale.setGmtStart(yyyy + "-" + mm + "-01 00:00:00");
 		sale.setGmtEnd(yyyy + "-" + mm + "-31 23:59:59");
