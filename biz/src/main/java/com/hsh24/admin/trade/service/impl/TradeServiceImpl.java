@@ -179,7 +179,7 @@ public class TradeServiceImpl implements ITradeService {
 		Trade trade = null;
 
 		try {
-			trade = tradeDao.getTrade(trade);
+			trade = tradeDao.getTrade(t);
 		} catch (Exception e) {
 			logger.error(LogUtil.parserBean(trade), e);
 		}
