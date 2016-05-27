@@ -10,11 +10,13 @@
 	<![CDATA[
 		SELECT SUM(t.cr_amount) AS crAmount,
 			   SUM(t.dr_amount) AS drAmount
-		  FROM dms_tb_cashflow t, dms_tb_cashflow_cat p
+		  FROM dms_tb_cashflow t, dms_tb_cashflow_cat p, dms_tb_org_shop q
 		 WHERE t.cashflow_cid = p.cashflow_cid
+		   AND t.shop_id = q.shop_id
 		   AND t.state = 'U'
 		   AND p.state = 'U'
-		   AND t.shop_id = #shopId#
+		   AND q.state = 'U'
+		   AND q.org_id = #orgId#
 	]]>
 		<dynamic>
 			<isNotEmpty property="code" prepend="and">

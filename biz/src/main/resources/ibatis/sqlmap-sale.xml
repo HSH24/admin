@@ -20,6 +20,11 @@
 		   AND q.state = 'U'
 		   AND q.org_id = #orgId#
 	]]>
+		<dynamic>
+			<isNotEmpty property="shopId" prepend="and">
+			<![CDATA[ t.org_id = #shopId# ]]>
+			</isNotEmpty>
+		</dynamic>
 	</select>
 	
 	<select id="getSaleList1" parameterClass="sale" resultClass="sale">

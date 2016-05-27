@@ -23,6 +23,13 @@ public interface IShopService {
 	 * @param orgId
 	 * @return
 	 */
+	int getShopCount(Long orgId);
+
+	/**
+	 * 
+	 * @param orgId
+	 * @return
+	 */
 	List<Shop> getShopList(Long orgId);
 
 }

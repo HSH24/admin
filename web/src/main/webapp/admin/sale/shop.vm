@@ -17,16 +17,17 @@
 			<div class="list-block" style="font-size: 15px;">
 				<ul class="page-settings">
 					<li class="row" style="text-align: center;">
-						<div class="col-33" style="width: 33%;">
-							
-							<div class="color-gray">$!{curYear}年</div>
+						<div class="col-33" style="width: 33%;"  id="aaabbbccc">
+							<input type="text" id="month_select"></input>
+							<h3 id="sale/shop/month">5月</h3>
+							<div class="color-gray" id="sale/shop/year">2015年</div>
                         </div>
 						<div class="col-33" style="width: 33%;">
-							<h3 id="sale/index/a">0.00</h3>
+							<h3 id="sale/shop/a">0.00</h3>
 							<div class="color-gray">今天(元)</div>
                         </div>
 						<div class="col-33" style="width: 33%;">
-							<h3 id="sale/index/b">0.00</h3>
+							<h3 id="sale/shop/b">0.00</h3>
 							<div class="color-gray">本月(元)</div>
                         </div>
 					</li>
@@ -41,7 +42,7 @@
 							<div class="item-media"><i class="iconfont icon-shop"></i></div>
 							<div class="item-inner">
 								<div class="item-title">$!{sale.shopName}</div>
-								<div class="item-after">$!formatUtil.getAmountFormat($!{sale.amount})</div>
+								<div class="item-after">本月：$!formatUtil.getAmountFormat($!{sale.amount})</div>
 							</div>
 						</a>
 					</li>

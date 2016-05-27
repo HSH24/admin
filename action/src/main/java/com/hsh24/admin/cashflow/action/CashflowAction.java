@@ -38,16 +38,16 @@ public class CashflowAction extends BaseAction {
 	public String stats() {
 		StringBuilder sb = new StringBuilder();
 
-		Long shopId = this.getOrg().getOrgId();
+		Long orgId = this.getOrg().getOrgId();
 
 		if (StringUtils.isBlank(type)) {
-			Cashflow cashflow = cashflowService.getCashflowStats(shopId);
+			Cashflow cashflow = cashflowService.getCashflowStats(orgId);
 			sb.append(FormatUtil.getAmountFormat(cashflow == null ? BigDecimal.ZERO : cashflow.getDrAmount())).append(
 				"&");
 			sb.append(FormatUtil.getAmountFormat(cashflow == null ? BigDecimal.ZERO : cashflow.getCrAmount())).append(
 				"&");
 
-			BankAcct bankAcct = bankAcctService.getBankAcct(shopId, "1001");
+			BankAcct bankAcct = bankAcctService.getBankAcctStats(orgId, "1001");
 			sb.append(FormatUtil.getAmountFormat(bankAcct == null ? BigDecimal.ZERO : bankAcct.getCurBal()));
 
 			this.setResourceResult(sb.toString());
@@ -55,16 +55,16 @@ public class CashflowAction extends BaseAction {
 			return RESOURCE_RESULT;
 		}
 
-		Cashflow cashflow = cashflowService.getCashflowStats(shopId, "A");
+		Cashflow cashflow = cashflowService.getCashflowStats(orgId, "A");
 		sb.append(FormatUtil.getAmountFormat(cashflow == null ? BigDecimal.ZERO : cashflow.getDrAmount())).append("&");
 
-		cashflow = cashflowService.getCashflowStats(shopId, "C");
+		cashflow = cashflowService.getCashflowStats(orgId, "C");
 		sb.append(FormatUtil.getAmountFormat(cashflow == null ? BigDecimal.ZERO : cashflow.getDrAmount())).append("&");
 
-		cashflow = cashflowService.getCashflowStats(shopId, "B");
+		cashflow = cashflowService.getCashflowStats(orgId, "B");
 		sb.append(FormatUtil.getAmountFormat(cashflow == null ? BigDecimal.ZERO : cashflow.getCrAmount())).append("&");
 
-		BankAcct bankAcct = bankAcctService.getBankAcct(shopId, "1001");
+		BankAcct bankAcct = bankAcctService.getBankAcctStats(orgId, "1001");
 		sb.append(FormatUtil.getAmountFormat(bankAcct == null ? BigDecimal.ZERO : bankAcct.getCurBal()));
 
 		this.setResourceResult(sb.toString());

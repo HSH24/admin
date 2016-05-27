@@ -89,7 +89,7 @@
 										<a href="#view-3" id="view_3_click" class="small-box tab-link" style="background-color: #70A9B7; color: #FFFFFF;">
 											<div class="inner">
 												<h3>便民亭</h3>
-												<p>新开：0<br/>总计：0</p>
+												<p id="portal/home/shop">新开：0<br/>总计：0</p>
 											</div>
 											<div class="icon">
 												<i class="icon iconfont icon-shop"></i>
@@ -163,10 +163,12 @@
 		#JSM(["framework7", "weixin", "jquery", "common"])
 		#JS_ENV_VAL()
 		<!-- 打包合并 -->
-		<script src="$!{env.imgUrl}/js/portal/home.js"></script>
+		<script src="$!{env.imgUrl}/js/portal/home.js?t=20150827"></script>
+		<script src="$!{env.imgUrl}/js/sale/shop.js" async="async"></script>
 		<script src="$!{env.imgUrl}/js/sale/list.js" async="async"></script>
-		<script src="$!{env.imgUrl}/js/member/index.js" async="async"></script>
+		<script src="$!{env.imgUrl}/js/member/index.js?t=20150827" async="async"></script>
 		<script src="$!{env.imgUrl}/js/trade/list.js" async="async"></script>
+		<script src="$!{env.imgUrl}/js/cashflow/shop.js" async="async"></script>
 		<script src="$!{env.imgUrl}/js/cashflow/list.js" async="async"></script>
 		<script src="$!{env.imgUrl}/js/user/detail.js" async="async"></script>
 		<script src="$!{env.imgUrl}/js/user/setPassword.js" async="async"></script>

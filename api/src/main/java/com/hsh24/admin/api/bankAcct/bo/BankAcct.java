@@ -22,9 +22,9 @@ public class BankAcct implements Serializable {
 
 	private BigDecimal minDeposit;
 
-	private String modifyUser;
-
 	// >>>>>>>>>>以下是辅助属性<<<<<<<<<<
+
+	private Long orgId;
 
 	private String accCode;
 
@@ -70,12 +70,12 @@ public class BankAcct implements Serializable {
 		this.minDeposit = minDeposit;
 	}
 
-	public String getModifyUser() {
-		return modifyUser;
+	public Long getOrgId() {
+		return orgId;
 	}
 
-	public void setModifyUser(String modifyUser) {
-		this.modifyUser = modifyUser;
+	public void setOrgId(Long orgId) {
+		this.orgId = orgId;
 	}
 
 	public String getAccCode() {

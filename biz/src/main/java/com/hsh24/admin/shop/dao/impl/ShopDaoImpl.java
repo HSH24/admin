@@ -18,6 +18,11 @@ public class ShopDaoImpl extends BaseDaoImpl implements IShopDao {
 		return (Shop) getSqlMapClientTemplate().queryForObject("shop.getShop", shop);
 	}
 
+	@Override
+	public int getOrgShopCount(Shop shop) {
+		return (Integer) getSqlMapClientTemplate().queryForObject("shop.getOrgShopCount", shop);
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Shop> getOrgShopList(Shop shop) {

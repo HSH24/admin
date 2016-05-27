@@ -22,7 +22,7 @@
 							<div class="item-media"><i class="iconfont icon-goods"></i></div>
 							<div class="item-inner">
 								<div class="item-title">$!{trade.shopName}</div>
-								<div class="item-after">$!{trade.amount}|$!{trade.tradePrice}</div>
+								<div class="item-after">订单：$!{trade.amount}；金额：$!{trade.tradePrice}</div>
 							</div>
 						</a>
 					</li>

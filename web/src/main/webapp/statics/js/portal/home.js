@@ -3,6 +3,8 @@ var myApp = new Framework7({
 			animateNavBackIcon : true,
 			animatePages : Framework7.prototype.device.ios,
 			swipePanel : 'left',
+			modalButtonOk : '确认',
+			modalButtonCancel : '取消',
 			imagesLazyLoadPlaceholder : imgUrl + '/image/loading.png',
 			// Hide and show indicator during ajax requests
 			onAjaxStart : function(xhr) {
@@ -22,7 +24,7 @@ var mainView = myApp.addView('.view-main', {
 			dynamicNavbar : true
 		});
 $$('#href-1').on('click', function() {
-		 portal_home_stats();
+			portal_home_stats();
 		});
 
 // ==============================
@@ -50,6 +52,7 @@ $$('#href-5').on('click', function() {
 						});
 			} else {
 				// 刷新
+				member_index_stats();
 			}
 		});
 
@@ -94,6 +97,27 @@ function portal_home_stats() {
 						+ '<br/>订单：' + stats[1]);
 			});
 
+	$$.get(appUrl + '/shop/stats.htm', {}, function(data) {
+				var stats = data.split("&");
+				$$('#portal/home/shop').html('新开：' + stats[0] + '<br/>总计：'
+						+ stats[1]);
+			});
 }
 
 portal_home_stats();
+
+myApp.onPageInit('portal.home', function(page) {
+			$$('#view_3_click').on('click', function() {
+						if (view3.history.length == 1) {
+							view3.router.load({
+										url : appUrl + "/shop/list.htm",
+										ignoreCache : true,
+										reload : true
+									});
+						}
+
+						$$('#href-3').addClass("active");
+					});
+
+			portal_home_stats();
+		})

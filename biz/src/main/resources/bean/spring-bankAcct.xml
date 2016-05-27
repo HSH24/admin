@@ -6,7 +6,9 @@
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
 	<bean id="bankAcctService" class="com.hsh24.admin.bankAcct.service.impl.BankAcctServiceImpl">
+		<property name="bankAcctDao" ref="bankAcctDao" />
 	</bean>
 	
+	<bean id="bankAcctDao" class="com.hsh24.admin.bankAcct.dao.impl.BankAcctDaoImpl" parent="baseDao" />
 	
 </beans>

@@ -31,12 +31,20 @@ public class SaleServiceImpl implements ISaleService {
 	private ISaleDetailDao saleDetailDao;
 
 	@Override
-	public Sale getStats(Long orgId, Sale sale) {
+	public Sale getStats(Long orgId, String shopId, Sale sale) {
 		if (orgId == null || sale == null) {
 			return null;
 		}
 
 		sale.setOrgId(orgId);
+
+		if (StringUtils.isNotBlank(shopId)) {
+			try {
+				sale.setShopId(Long.valueOf(shopId));
+			} catch (NumberFormatException e) {
+				logger.error(e);
+			}
+		}
 
 		try {
 			return saleDao.getStats(sale);
@@ -56,7 +64,7 @@ public class SaleServiceImpl implements ISaleService {
 		sale.setOrgId(orgId);
 
 		List<Sale> saleList = null;
-		
+
 		try {
 			saleList = saleDao.getSaleList(sale);
 		} catch (Exception e) {
