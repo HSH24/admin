@@ -5,8 +5,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
+	<bean id="shopAction" class="com.hsh24.admin.shop.action.ShopAction" parent="baseAction" scope="request">
+		<property name="shopService" ref="shopService" />
+	</bean>
+	
 	<bean id="shopService" class="com.hsh24.admin.shop.service.impl.ShopServiceImpl">
 		<property name="memcachedCacheService" ref="memcachedCacheService" />
+		<property name="userService" ref="userService" />
 		<property name="shopDao" ref="shopDao" />
 	</bean>
 	

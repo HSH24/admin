@@ -1,0 +1,123 @@
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span></span></a></div>
+		<div class="center sliding">订单详情</div>
+		<div class="right">
+			<!-- Right link contains only icon - additional "icon-only" class-->
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<!-- Page, data-page contains page name-->
+	<div data-page="trade.detail" class="page no-tabbar">
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="list-block media-list" style="font-size: 15px;">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner" style="display: inherit;">
+								<div class="item-title" style="font-weight: 400;">供应商：$!{trade.supName}</div>
+								<div class="item-after">
+									#if($!{trade.type} == 'send')
+									<a id="trade/detail/edit" href="javascript:trade_detail_edit();" style="margin: -10px 0px; padding: 10px 0px;">部分收货</a>
+									<a id="trade/detail/edited" href="javascript:trade_detail_edited();" style="margin: -10px 0px; padding: 10px 0px; display: none;">取消</a>
+									#end
+								</div>
+							</div>
+						</div>
+					</li>
+					#foreach($order in $!{trade.orderList})
+					<input type="hidden" name="trade/detail/orderId" value="$!{order.orderId}"></input>
+					<li>
+						<div class="item-content">
+							<div class="item-media" style="padding-top: 7px; padding-bottom: 8px;">
+								<img data-src="$!{order.itemFilePath}" class="lazy" style="width: 50px; height: 50px;"></img>
+							</div>
+							<div class="item-inner">
+								<div class="item-title-row" style="margin-top: 3px;">
+									<div class="item-title" style="font-weight: 400;">$!{order.itemName}</div>
+									<div class="item-after">￥$!formatUtil.getAmountFormat($!{order.price})</div>
+								</div>
+								<div class="item-title-row" style="margin-top: 3px;">
+									<div class="item-subtitle" style="font-size: 13px; color: #8e8e93;">$!{order.propertiesName}</div>
+									<div id="trade/detail/quantity/edited/$!{order.orderId}" class="item-after">
+										#if($!{order.receiptedQuantity} > 0)
+										共 ×$!{order.quantity}
+										[已收 x$!{order.receiptedQuantity}]
+										#else
+										×$!{order.quantity}
+										#end
+									</div>
+									<div id="trade/detail/quantity/edit" class="item-after" style="display: none;">
+										<div class="quantity">
+											<button class="minus" type="button"></button>
+                                            <input id="trade/detail/quantity/$!{order.orderId}" type="text" class="txt" value="$!{order.receiptQuantity}"></input>
+											<button class="plus" type="button"></button>
+											<div class="response-area response-area-minus" onclick="trade_detail_minus('$!{order.orderId}');"></div>
+											<div class="response-area response-area-plus" onclick="trade_detail_plus('$!{order.orderId}');"></div>
+										</div>
+									</div>
+								</div>
+								#if($!{trade.type} == 'tosend')
+								<div class="item-title-row" style="margin-top: 3px;">
+									<div class="item-title"></div>
+									<div class="item-after">
+										<!-- <a href="javascript:trade_detail_cancel('$!{trade.tradeNo}', '$!{order.orderId}')" class="button color-red" data-ignore-cache="true">取消明细</a> -->
+									</div>
+								</div>
+								#end
+							</div>
+						</div>
+					</li>
+					#end
+					<li id="trade/detail/item/price">
+						<div class="item-content">
+							<div class="item-inner" style="display: inherit;">
+								<div class="item-title" style="font-weight: 400;">合计</div>
+								<div class="item-after" style="color: #ff5500;">￥$!formatUtil.getAmountFormat($!{trade.price})</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+            </div>
+			
+			<div id="trade/detail/media/2" class="list-block media-list" style="font-size: 15px;">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title" style="font-weight: 400; width: 100%; text-align: center;">
+									<div style="font-size: 16px; color: #ff5500;">
+										#if($!{trade.type} == 'check' || $!{trade.type} == 'topay' || $!{trade.type} == 'cancel')
+										应付：￥$!formatUtil.getAmountFormat($!{trade.price})
+										#else
+										实付：￥$!formatUtil.getAmountFormat($!{trade.price})
+										#end
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-inner">
+								<div class="item-title-row" style="margin-top: 3px;">
+									<div class="item-title" style="font-weight: 400;">订单编号：$!{tradeNo}</div>
+                                </div>
+								<div class="item-title-row" style="margin-top: 3px;">
+									<div class="item-subtitle" style="font-size: 14px; color: #8e8e93;">$!{trade.payDate}</div>
+                                </div>
+								<div class="item-title-row" style="margin-top: 3px;">
+									<div class="item-subtitle" style="font-size: 14px; color: #8e8e93;">完成下单</div>
+                                </div>
+							</div>
+						</div>
+					</li>
+				</ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,7 @@
 package com.hsh24.admin.api.shop;
 
+import java.util.List;
+
 import com.hsh24.admin.api.shop.bo.Shop;
 
 /**
@@ -15,5 +17,12 @@ public interface IShopService {
 	 * @return
 	 */
 	Shop getShop(Long shopId);
+
+	/**
+	 * 
+	 * @param orgId
+	 * @return
+	 */
+	List<Shop> getShopList(Long orgId);
 
 }

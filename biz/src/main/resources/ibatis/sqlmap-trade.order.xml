@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="trade.order">
+	
+	<typeAlias alias="order" type="com.hsh24.admin.api.trade.bo.Order" />
+
+	<select id="getOrderList" parameterClass="order" resultClass="order">
+	<![CDATA[
+		SELECT t.order_id AS orderId,
+			   t.item_name AS itemName,
+			   t.item_file_path AS itemFilePath,
+			   t.properties_name AS propertiesName,
+			   t.quantity,
+			   t.price,
+			   t.change
+		  FROM dms_tb_order t
+		 WHERE t.state = 'U'
+		   AND t.trade_id = #tradeId#
+	]]>
+	</select>
+	
+</sqlMap>

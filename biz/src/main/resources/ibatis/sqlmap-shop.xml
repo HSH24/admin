@@ -10,10 +10,20 @@
 	<![CDATA[
 		SELECT t.shop_id AS shopId,
 			   t.shop_name AS shopName,
-			   t.region_id AS regionId
+			   t.address,
+			   t.user_id AS userId
 		  FROM mdm.mdm_tb_shop t
 		 WHERE t.state = 'U'
 		   AND t.shop_id = #shopId#
+	]]>
+	</select>
+	
+	<select id="getOrgShopList" parameterClass="shop" resultClass="shop">
+	<![CDATA[
+		SELECT t.shop_id AS shopId
+		  FROM dms_tb_org_shop t
+		 WHERE t.state = 'U'
+		   AND t.org_id = #orgId#
 	]]>
 	</select>
 	

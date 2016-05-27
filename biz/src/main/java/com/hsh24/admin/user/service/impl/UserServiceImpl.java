@@ -29,7 +29,25 @@ public class UserServiceImpl implements IUserService {
 	private IUserDao userDao;
 
 	@Override
-	public User getUserByPassport(String passport) {
+	public User getUser(Long userId) {
+		if (userId == null) {
+			return null;
+		}
+
+		User user = new User();
+		user.setUserId(userId);
+
+		try {
+			return userDao.getUser(user);
+		} catch (Exception e) {
+			logger.error(LogUtil.parserBean(user), e);
+		}
+
+		return null;
+	}
+
+	@Override
+	public User getUser(String passport) {
 		if (StringUtils.isBlank(passport)) {
 			return null;
 		}
