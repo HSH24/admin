@@ -107,5 +107,17 @@ function portal_home_stats() {
 portal_home_stats();
 
 myApp.onPageInit('portal.home', function(page) {
+			$$('#view_3_click').on('click', function() {
+						if (view3.history.length == 1) {
+							view3.router.load({
+										url : appUrl + "/shop/list.htm",
+										ignoreCache : true,
+										reload : true
+									});
+						}
+
+						$$('#href-3').addClass("active");
+					});
+
 			portal_home_stats();
 		})
