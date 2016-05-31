@@ -31,7 +31,9 @@
 			   SUM(t.dr_amount) AS drAmount,
 			   t.shop_id AS shopId
 		  FROM dms_tb_cashflow t, dms_tb_org_shop p
-		 WHERE t.shop_id = p.shop_id
+		 WHERE t.trade_date >= date_format(#gmtStart#, '%Y-%m-%d %T')
+		   AND t.trade_date <= date_format(#gmtEnd#, '%Y-%m-%d %T')
+		   AND t.shop_id = p.shop_id
 		   AND t.state = 'U'
 		   AND p.state = 'U'
 		   AND p.org_id = #orgId#
@@ -49,7 +51,9 @@
 			   DATE_FORMAT(t.trade_date, '%Y-%m-%d %T') AS tradeDate,
 			   t.trade_no AS tradeNo
 		  FROM dms_tb_cashflow t, dms_tb_org_shop p
-		 WHERE t.shop_id = p.shop_id
+		 WHERE t.trade_date >= date_format(#gmtStart#, '%Y-%m-%d %T')
+		   AND t.trade_date <= date_format(#gmtEnd#, '%Y-%m-%d %T')
+		   AND t.shop_id = p.shop_id
 		   AND t.state = 'U'
 		   AND p.state = 'U'
 		   AND p.org_id = #orgId#

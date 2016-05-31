@@ -23,8 +23,8 @@ myApp.onPageInit('sale.shop', function(page) {
 							$$('#sale/shop/month').val()]);
 				},
 				onClose : function(p) {
-					$$('#sale/shop/year').val(p.value[0]);
-					$$('#sale/shop/month').val(p.value[1]);
+					mainView.router.reloadPage(appUrl + '/sale/shop.htm?year='
+							+ p.value[0] + '&month=' + p.value[1])
 				}
 			});
 

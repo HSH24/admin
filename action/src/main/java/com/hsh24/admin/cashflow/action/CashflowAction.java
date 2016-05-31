@@ -10,6 +10,7 @@ import com.hsh24.admin.api.bankAcct.bo.BankAcct;
 import com.hsh24.admin.api.cashflow.ICashflowService;
 import com.hsh24.admin.api.cashflow.bo.Cashflow;
 import com.hsh24.admin.framework.action.BaseAction;
+import com.hsh24.admin.framework.util.DateUtil;
 import com.hsh24.admin.framework.util.FormatUtil;
 
 /**
@@ -30,6 +31,10 @@ public class CashflowAction extends BaseAction {
 	private String type;
 
 	private String shopId;
+
+	private String year;
+
+	private String month;
 
 	/**
 	 * 
@@ -74,10 +79,33 @@ public class CashflowAction extends BaseAction {
 
 	/**
 	 * 
+	 * @param cashflow
+	 * @return
+	 */
+	private Cashflow init(Cashflow cashflow) {
+		int yyyy = DateUtil.getYear();
+		int mm = DateUtil.getMonth();
+
+		if (StringUtils.isBlank(year)) {
+			year = String.valueOf(yyyy);
+		}
+
+		if (StringUtils.isBlank(month)) {
+			month = String.valueOf(mm);
+		}
+
+		cashflow.setGmtStart(year + "-" + month + "-01 00:00:00");
+		cashflow.setGmtEnd(year + "-" + month + "-31 23:59:59");
+
+		return cashflow;
+	}
+
+	/**
+	 * 
 	 * @return
 	 */
 	public String shop() {
-		cashflowList = cashflowService.getCashflowList(this.getOrg().getOrgId(), new Cashflow());
+		cashflowList = cashflowService.getCashflowList(this.getOrg().getOrgId(), init(new Cashflow()));
 
 		return SUCCESS;
 	}
@@ -87,7 +115,7 @@ public class CashflowAction extends BaseAction {
 	 * @return
 	 */
 	public String list() {
-		cashflowList = cashflowService.getCashflowList(this.getOrg().getOrgId(), shopId, new Cashflow());
+		cashflowList = cashflowService.getCashflowList(this.getOrg().getOrgId(), shopId, init(new Cashflow()));
 
 		return SUCCESS;
 	}
@@ -130,6 +158,22 @@ public class CashflowAction extends BaseAction {
 
 	public void setShopId(String shopId) {
 		this.shopId = shopId;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public void setMonth(String month) {
+		this.month = month;
 	}
 
 }

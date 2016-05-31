@@ -2,6 +2,8 @@ package com.hsh24.admin.sale.action;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.hsh24.admin.api.sale.ISaleService;
 import com.hsh24.admin.api.sale.bo.Sale;
 import com.hsh24.admin.api.sale.bo.SaleDetail;
@@ -28,9 +30,9 @@ public class SaleAction extends BaseAction {
 
 	private String shopId;
 
-	private int year;
+	private String year;
 
-	private int month;
+	private String month;
 
 	/**
 	 * 首页 销售统计.
@@ -63,22 +65,35 @@ public class SaleAction extends BaseAction {
 	}
 
 	/**
+	 * 
+	 * @param sale
+	 * @return
+	 */
+	private Sale init(Sale sale) {
+		int yyyy = DateUtil.getYear();
+		int mm = DateUtil.getMonth();
+
+		if (StringUtils.isBlank(year)) {
+			year = String.valueOf(yyyy);
+		}
+
+		if (StringUtils.isBlank(month)) {
+			month = String.valueOf(mm);
+		}
+
+		sale.setGmtStart(year + "-" + month + "-01 00:00:00");
+		sale.setGmtEnd(year + "-" + month + "-31 23:59:59");
+
+		return sale;
+	}
+
+	/**
 	 * 销售列表 维度：店铺.
 	 * 
 	 * @return
 	 */
 	public String shop() {
-		year = DateUtil.getYear();
-		month = DateUtil.getMonth();
-
-		String yyyy = String.valueOf(year);
-		String mm = String.valueOf(month);
-
-		Sale sale = new Sale();
-		sale.setGmtStart(yyyy + "-" + mm + "-01 00:00:00");
-		sale.setGmtEnd(yyyy + "-" + mm + "-31 23:59:59");
-
-		saleList = saleService.getSaleList(this.getOrg().getOrgId(), sale);
+		saleList = saleService.getSaleList(this.getOrg().getOrgId(), init(new Sale()));
 
 		return SUCCESS;
 	}
@@ -88,13 +103,7 @@ public class SaleAction extends BaseAction {
 	 * @return
 	 */
 	public String list() {
-		Sale sale = new Sale();
-		String yyyy = String.valueOf(DateUtil.getYear());
-		String mm = String.valueOf(DateUtil.getMonth());
-		sale.setGmtStart(yyyy + "-" + mm + "-01 00:00:00");
-		sale.setGmtEnd(yyyy + "-" + mm + "-31 23:59:59");
-
-		saleList = saleService.getSaleList(this.getOrg().getOrgId(), shopId, sale);
+		saleList = saleService.getSaleList(this.getOrg().getOrgId(), shopId, init(new Sale()));
 
 		return SUCCESS;
 	}
@@ -149,19 +158,19 @@ public class SaleAction extends BaseAction {
 		this.shopId = shopId;
 	}
 
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
-	public int getMonth() {
+	public String getMonth() {
 		return month;
 	}
 
-	public void setMonth(int month) {
+	public void setMonth(String month) {
 		this.month = month;
 	}
 
