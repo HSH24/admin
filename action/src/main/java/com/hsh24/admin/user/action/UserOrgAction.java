@@ -36,7 +36,7 @@ public class UserOrgAction extends BaseAction {
 		// 判断是否关联多个店铺
 		orgList = userOrgService.getOrgList(user.getPassport());
 
-		if (orgList == null || orgList.size() == 0) {
+		if (orgList == null || orgList.isEmpty()) {
 			return "org";
 		}
 

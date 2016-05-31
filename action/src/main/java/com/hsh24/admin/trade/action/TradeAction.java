@@ -34,9 +34,8 @@ public class TradeAction extends BaseAction {
 		Long orgId = this.getOrg().getOrgId();
 
 		if ("tosend".equals(type)) {
-			sb.append(FormatUtil.getAmountFormat(tradeService.getTradePrice(orgId, new String[] { "tosend" }))).append(
-				"&");
-			sb.append(tradeService.getTradeCount(orgId, new String[] { "tosend" }));
+			sb.append(FormatUtil.getAmountFormat(tradeService.getTradePrice(orgId, new String[] { type }))).append("&");
+			sb.append(tradeService.getTradeCount(orgId, new String[] { type }));
 
 			this.setResourceResult(sb.toString());
 		}
@@ -48,7 +47,7 @@ public class TradeAction extends BaseAction {
 		Long orgId = this.getOrg().getOrgId();
 
 		if ("tosend".equals(type)) {
-			tradeList = tradeService.getTradeList(orgId, new String[] { "tosend" });
+			tradeList = tradeService.getTradeList(orgId, new String[] { type });
 		}
 
 		return SUCCESS;
@@ -63,7 +62,7 @@ public class TradeAction extends BaseAction {
 		Long orgId = this.getOrg().getOrgId();
 
 		if ("tosend".equals(type)) {
-			tradeList = tradeService.getTradeList(orgId, shopId, new String[] { "tosend" });
+			tradeList = tradeService.getTradeList(orgId, shopId, new String[] { type });
 		}
 
 		return SUCCESS;
