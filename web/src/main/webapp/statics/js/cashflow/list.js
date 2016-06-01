@@ -23,7 +23,7 @@ myApp.onPageInit('cashflow.list', function(page) {
 							$$('#cashflow/list/month').val()]);
 				},
 				onClose : function(p) {
-					mainView.router.reloadPage(appUrl
+					myApp.getCurrentView().router.reloadPage(appUrl
 							+ '/cashflow/list.htm?shopId='
 							+ $$('#cashflow/list/shopId').val() + '&year='
 							+ p.value[0] + '&month=' + p.value[1])
