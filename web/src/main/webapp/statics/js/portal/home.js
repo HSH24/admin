@@ -1,7 +1,8 @@
 // Initialize your app
 var myApp = new Framework7({
 			animateNavBackIcon : true,
-			animatePages : Framework7.prototype.device.ios,
+			// animatePages : Framework7.prototype.device.ios,
+			pushState : true,
 			swipePanel : 'left',
 			modalButtonOk : '确认',
 			modalButtonCancel : '取消',
