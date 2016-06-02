@@ -43,7 +43,6 @@
 		 GROUP BY t.org_id) bbb on aaa.shop_id = bbb.org_id
 		 WHERE aaa.state = 'U'
 		   AND aaa.org_id = #orgId#
-		 GROUP BY aaa.shop_id
 	]]>
 	</select>
 	

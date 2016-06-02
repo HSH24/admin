@@ -48,7 +48,7 @@
                 </ul>
             </div>
 			
-			#if($!{saleList})
+			#if($!{saleList} && $!{saleList.size()} > 0)
 			#set($d = '00')
 			<div class="list-block" style="font-size: 14px;">
 				#foreach($sale in $!{saleList})
@@ -71,6 +71,15 @@
 				#end
 				</ul>
             </div>
+			#else
+			<div class="empty-list">
+				<div class="empty-list-header">
+					<h4>没有销售数据</h4>
+					<span></span>
+				</div>
+				<div class="empty-list-content">
+				</div>
+			</div>
 			#end
         </div>
     </div>

@@ -19,14 +19,16 @@
 	
 	<select id="getStockList1" parameterClass="stock" resultClass="stock">
 	<![CDATA[
-		SELECT IFNULL(SUM(t.goods_num), 0) AS stock,
-			   w.org_id AS shopId
-		  FROM oms.wm_account_t t, oms.main_warehouse_t w, dms_tb_org_shop q
+		SELECT IFNULL(bbb.stock, 0) AS stock,
+			   aaa.shop_id AS shopId
+		  FROM dms_tb_org_shop aaa
+		  LEFT JOIN(
+		SELECT SUM(t.goods_num) AS stock, w.org_id
+		  FROM oms.wm_account_t t, oms.main_warehouse_t w
 		 WHERE w.warehouse_id = t.warehouse_id
-		   AND q.shop_id = w.org_id
-		   AND q.state = 'U'
-		   AND q.org_id = #orgId#
-		  GROUP BY w.org_id
+		 GROUP BY w.org_id) bbb ON aaa.shop_id = bbb.org_id
+		 WHERE aaa.state = 'U'
+		   AND aaa.org_id = #orgId#
 	]]>
 	</select>
 	
