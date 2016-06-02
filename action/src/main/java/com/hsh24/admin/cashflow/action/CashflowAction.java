@@ -45,15 +45,15 @@ public class CashflowAction extends BaseAction {
 
 		Long orgId = this.getOrg().getOrgId();
 
-		Cashflow cashflow = cashflowService.getCashflowStats(orgId, "C");
+		Cashflow cashflow = cashflowService.getCashflowStats(orgId, shopId, "C");
 		BigDecimal crAmount = cashflow == null ? BigDecimal.ZERO : cashflow.getDrAmount();
 
-		cashflow = cashflowService.getCashflowStats(orgId, "B");
+		cashflow = cashflowService.getCashflowStats(orgId, shopId, "B");
 		sb.append(
 			FormatUtil.getAmountFormat(cashflow == null ? BigDecimal.ZERO : cashflow.getCrAmount().add(
 				crAmount.negate()))).append("&");
 
-		BankAcct bankAcct = bankAcctService.getBankAcctStats(orgId, "1001");
+		BankAcct bankAcct = bankAcctService.getBankAcctStats(orgId, shopId, "1001");
 		sb.append(FormatUtil.getAmountFormat(bankAcct == null ? BigDecimal.ZERO : bankAcct.getCurBal()));
 
 		this.setResourceResult(sb.toString());
@@ -88,7 +88,7 @@ public class CashflowAction extends BaseAction {
 	 * @return
 	 */
 	public String shop() {
-		cashflowList = cashflowService.getCashflowList(this.getOrg().getOrgId(), init(new Cashflow()));
+		cashflowList = cashflowService.getCashflowStats(this.getOrg().getOrgId(), init(new Cashflow()));
 
 		return SUCCESS;
 	}

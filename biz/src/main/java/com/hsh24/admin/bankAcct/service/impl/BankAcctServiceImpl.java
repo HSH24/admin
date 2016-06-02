@@ -22,12 +22,26 @@ public class BankAcctServiceImpl implements IBankAcctService {
 
 	@Override
 	public BankAcct getBankAcctStats(Long orgId, String accCode) {
+		return getBankAcctStats(orgId, null, accCode);
+	}
+
+	@Override
+	public BankAcct getBankAcctStats(Long orgId, String shopId, String accCode) {
 		if (orgId == null || StringUtils.isBlank(accCode)) {
 			return null;
 		}
 
 		BankAcct bankAcct = new BankAcct();
 		bankAcct.setOrgId(orgId);
+		if (StringUtils.isNotBlank(shopId)) {
+			try {
+				bankAcct.setShopId(Long.parseLong(shopId));
+			} catch (NumberFormatException e) {
+				logger.error(e);
+
+				return null;
+			}
+		}
 		bankAcct.setAccCode(accCode.trim());
 
 		try {

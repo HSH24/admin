@@ -17,4 +17,13 @@ public interface IBankAcctService {
 	 */
 	BankAcct getBankAcctStats(Long orgId, String accCode);
 
+	/**
+	 * 
+	 * @param orgId
+	 * @param shopId
+	 * @param accCode
+	 * @return
+	 */
+	BankAcct getBankAcctStats(Long orgId, String shopId, String accCode);
+
 }

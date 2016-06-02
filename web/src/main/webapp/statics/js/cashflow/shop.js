@@ -1,6 +1,7 @@
 myApp.onPageInit('cashflow.shop', function(page) {
 	myApp.picker({
 				input : '#cashflow/shop/date',
+				toolbarCloseText : '完成',
 				rotateEffect : true,
 				formatValue : function(p, values, displayValues) {
 					return values[0] + '年' + values[1] + '月';

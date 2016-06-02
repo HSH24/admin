@@ -18,11 +18,8 @@
 				<ul class="page-settings">
 					<li class="row" style="text-align: center;">
 						<div class="col-33" style="width: 33%;">
-							<div style="margin: 0.6rem 0 0 0;">
-								<input type="text" style="text-align: center; font-size: 16px;" id="cashflow/shop/date" value="$!{year}年$!{month}月"></input>
-								<input type="hidden" id="cashflow/shop/year" value="$!{year}"/>
-								<input type="hidden" id="cashflow/shop/month" value="$!{month}"/>
-                            </div>
+							<h3>50,000</h3>
+							<div class="color-gray">保证金(元)</div>
                         </div>
 						<div class="col-33" style="width: 33%;">
 							<h3 id="cashflow/shop/crAmount">0.00</h3>
@@ -36,6 +33,24 @@
                 </ul>
             </div>
 			
+			<div class="list-block" style="font-size: 14px;">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="iconfont icon-calendar"></i></div>
+							<div class="item-inner">
+								<div class="item-title label">统计时间</div>
+								<div class="item-input">
+									<input type="text" style="font-size: 14px;" id="cashflow/shop/date" value="$!{year}年$!{month}月"></input>
+									<input type="hidden" id="cashflow/shop/year" value="$!{year}"/>
+									<input type="hidden" id="cashflow/shop/month" value="$!{month}"/>
+								</div>
+							</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+			
 			<div class="list-block accordion-list" style="font-size: 14px;">
 				#foreach($cashflow in $!{cashflowList})
 				<ul class="after-height-0">
@@ -44,7 +59,7 @@
 							<div class="item-media"><i class="iconfont icon-recharge"></i></div>
 							<div class="item-inner">
 								<div class="item-title">$!{cashflow.shopName}</div>
-								<div class="item-after">支出：$!formatUtil.getAmountFormat($!{cashflow.crAmount})；收入：$!formatUtil.getAmountFormat($!{cashflow.drAmount})</div>
+								<div class="item-after">支出：$!formatUtil.getAmountFormat($!{cashflow.crAmount})</div>
 							</div>
 						</a>
 					</li>

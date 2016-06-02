@@ -8,7 +8,7 @@
 	
 	<select id="getStats" parameterClass="stock" resultClass="stock">
 	<![CDATA[
-		SELECT SUM(t.goods_num) AS stock
+		SELECT IFNULL(SUM(t.goods_num), 0) AS stock
 		  FROM oms.wm_account_t t, oms.main_warehouse_t w, dms_tb_org_shop q
 		 WHERE w.warehouse_id = t.warehouse_id
 		   AND q.shop_id = w.org_id
@@ -19,7 +19,7 @@
 	
 	<select id="getStockList1" parameterClass="stock" resultClass="stock">
 	<![CDATA[
-		SELECT SUM(t.goods_num) AS stock,
+		SELECT IFNULL(SUM(t.goods_num), 0) AS stock,
 			   w.org_id AS shopId
 		  FROM oms.wm_account_t t, oms.main_warehouse_t w, dms_tb_org_shop q
 		 WHERE w.warehouse_id = t.warehouse_id

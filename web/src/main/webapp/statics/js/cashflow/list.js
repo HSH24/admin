@@ -1,6 +1,7 @@
 myApp.onPageInit('cashflow.list', function(page) {
 	myApp.picker({
 				input : '#cashflow/list/date',
+				toolbarCloseText : '完成',
 				rotateEffect : true,
 				formatValue : function(p, values, displayValues) {
 					return values[0] + '年' + values[1] + '月';
@@ -34,7 +35,9 @@ myApp.onPageInit('cashflow.list', function(page) {
 });
 
 function cashflow_list_stats() {
-	$$.get(appUrl + '/cashflow/stats.htm', {}, function(data) {
+	$$.get(appUrl + '/cashflow/stats.htm', {
+				'shopId' : $$('#cashflow/list/shopId').val()
+			}, function(data) {
 				var stats = data.split("&");
 				$$('#cashflow/list/crAmount').html(stats[0]);
 				$$('#cashflow/list/curBal').html(stats[1]);

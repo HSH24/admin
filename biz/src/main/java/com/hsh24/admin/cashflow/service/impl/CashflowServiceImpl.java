@@ -27,18 +27,27 @@ public class CashflowServiceImpl implements ICashflowService {
 	private ICashflowDao cashflowDao;
 
 	@Override
-	public Cashflow getCashflowStats(Long orgId) {
-		return getCashflowStats(orgId, null);
+	public Cashflow getCashflowStats(Long orgId, String code) {
+		return getCashflowStats(orgId, null, code);
 	}
 
 	@Override
-	public Cashflow getCashflowStats(Long orgId, String code) {
+	public Cashflow getCashflowStats(Long orgId, String shopId, String code) {
 		if (orgId == null) {
 			return null;
 		}
 
 		Cashflow cashflow = new Cashflow();
 		cashflow.setOrgId(orgId);
+		if (StringUtils.isNotBlank(shopId)) {
+			try {
+				cashflow.setShopId(Long.parseLong(shopId));
+			} catch (NumberFormatException e) {
+				logger.error(e);
+
+				return null;
+			}
+		}
 		cashflow.setCode(code);
 
 		try {
@@ -51,7 +60,7 @@ public class CashflowServiceImpl implements ICashflowService {
 	}
 
 	@Override
-	public List<Cashflow> getCashflowList(Long orgId, Cashflow cashflow) {
+	public List<Cashflow> getCashflowStats(Long orgId, Cashflow cashflow) {
 		if (orgId == null || cashflow == null) {
 			return null;
 		}

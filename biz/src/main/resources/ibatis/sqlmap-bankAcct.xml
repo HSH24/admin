@@ -21,6 +21,11 @@
 		   AND p.acc_code = #accCode#
 		   AND q.org_id = #orgId#
 	]]>
+		<dynamic>
+			<isNotEmpty property="shopId" prepend="and">
+			<![CDATA[ t.shop_id = #shopId# ]]>
+			</isNotEmpty>
+		</dynamic>
 	</select>
 	
 </sqlMap>

@@ -14,13 +14,6 @@ public interface ICashflowService {
 	/**
 	 * 
 	 * @param orgId
-	 * @return
-	 */
-	Cashflow getCashflowStats(Long orgId);
-
-	/**
-	 * 
-	 * @param orgId
 	 * @param code
 	 * @return
 	 */
@@ -29,10 +22,19 @@ public interface ICashflowService {
 	/**
 	 * 
 	 * @param orgId
+	 * @param shopId
+	 * @param code
+	 * @return
+	 */
+	Cashflow getCashflowStats(Long orgId, String shopId, String code);
+
+	/**
+	 * 
+	 * @param orgId
 	 * @param cashflow
 	 * @return
 	 */
-	List<Cashflow> getCashflowList(Long orgId, Cashflow cashflow);
+	List<Cashflow> getCashflowStats(Long orgId, Cashflow cashflow);
 
 	/**
 	 * 
