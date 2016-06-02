@@ -37,12 +37,13 @@
 		SELECT SUM(CASE WHEN p.cashflow_code = 'B' THEN t.cr_amount WHEN p.cashflow_code = 'C' THEN t.dr_amount * -1 END) AS crAmount,
 			   t.shop_id
 		  FROM dms_tb_cashflow t, dms_tb_cashflow_cat p
-		 where t.cashflow_cid = p.cashflow_cid
+		 WHERE t.cashflow_cid = p.cashflow_cid
 		   AND t.state = 'U'
 		   AND p.state = 'U'
 		   AND p.cashflow_code in ('B', 'C')
 		   AND t.trade_date >= date_format(#gmtStart#, '%Y-%m-%d %T')
-		   AND t.trade_date <= date_format(#gmtEnd#, '%Y-%m-%d %T')) bbb on aaa.shop_id = bbb.shop_id
+		   AND t.trade_date <= date_format(#gmtEnd#, '%Y-%m-%d %T')
+		   GROUP BY t.shop_id) bbb on aaa.shop_id = bbb.shop_id
 		 WHERE aaa.state = 'U'
 		   AND aaa.org_id = #orgId#
 		 GROUP BY aaa.shop_id
