@@ -22,7 +22,7 @@
 							<div class="item-media"><i class="iconfont icon-shop"></i></div>
 							<div class="item-inner">
 								<div class="item-title">$!{stock.shopName}</div>
-								<div class="item-after">$!{stock.stock}</div>
+								<div class="item-after">库存：$!{stock.stock}</div>
 							</div>
 						</a>
 					</li>
