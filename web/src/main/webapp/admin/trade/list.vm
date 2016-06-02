@@ -14,6 +14,7 @@
 	<div data-page="trade.list" class="page no-tabbar">
 		<!-- Scrollable page content-->
 		<div class="page-content">
+			#if($!{tradeList} && $!{tradeList.size()} > 0)
 			#foreach($trade in $!{tradeList})
 			<div class="list-block media-list" style="font-size: 14px;">
 				<ul>
@@ -64,6 +65,16 @@
 						</div>
 					</li>
 				</ul>
+			</div>
+			#end
+			#else
+			<div class="empty-list">
+				<div class="empty-list-header">
+					<h4>没有采购数据</h4>
+					<span></span>
+				</div>
+				<div class="empty-list-content">
+				</div>
 			</div>
 			#end
 		</div>
