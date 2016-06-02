@@ -19,7 +19,7 @@
 				<ul class="after-height-0">
 					<li>
 						<a href="$!{env.appUrl}/trade/list.htm?type=tosend&shopId=$!{trade.shopId}" class="item-content item-link" data-ignore-cache="true">
-							<div class="item-media"><i class="iconfont icon-goods"></i></div>
+							<div class="item-media"><i class="iconfont icon-shop"></i></div>
 							<div class="item-inner">
 								<div class="item-title">$!{trade.shopName}</div>
 								<div class="item-after">订单：$!{trade.amount}；金额：$!{trade.tradePrice}</div>

@@ -19,7 +19,7 @@
 				<ul class="after-height-0">
 					<li>
 						<a href="$!{env.appUrl}/stock/list.htm?shopId=$!{stock.shopId}" class="item-content item-link" data-ignore-cache="true">
-							<div class="item-media"><i class="iconfont icon-goods"></i></div>
+							<div class="item-media"><i class="iconfont icon-shop"></i></div>
 							<div class="item-inner">
 								<div class="item-title">$!{stock.shopName}</div>
 								<div class="item-after">$!{stock.stock}</div>
