@@ -45,29 +45,13 @@ public class CashflowAction extends BaseAction {
 
 		Long orgId = this.getOrg().getOrgId();
 
-		if (StringUtils.isBlank(type)) {
-			Cashflow cashflow = cashflowService.getCashflowStats(orgId);
-			sb.append(FormatUtil.getAmountFormat(cashflow == null ? BigDecimal.ZERO : cashflow.getDrAmount())).append(
-				"&");
-			sb.append(FormatUtil.getAmountFormat(cashflow == null ? BigDecimal.ZERO : cashflow.getCrAmount())).append(
-				"&");
-
-			BankAcct bankAcct = bankAcctService.getBankAcctStats(orgId, "1001");
-			sb.append(FormatUtil.getAmountFormat(bankAcct == null ? BigDecimal.ZERO : bankAcct.getCurBal()));
-
-			this.setResourceResult(sb.toString());
-
-			return RESOURCE_RESULT;
-		}
-
-		Cashflow cashflow = cashflowService.getCashflowStats(orgId, "A");
-		sb.append(FormatUtil.getAmountFormat(cashflow == null ? BigDecimal.ZERO : cashflow.getDrAmount())).append("&");
-
-		cashflow = cashflowService.getCashflowStats(orgId, "C");
-		sb.append(FormatUtil.getAmountFormat(cashflow == null ? BigDecimal.ZERO : cashflow.getDrAmount())).append("&");
+		Cashflow cashflow = cashflowService.getCashflowStats(orgId, "C");
+		BigDecimal crAmount = cashflow == null ? BigDecimal.ZERO : cashflow.getDrAmount();
 
 		cashflow = cashflowService.getCashflowStats(orgId, "B");
-		sb.append(FormatUtil.getAmountFormat(cashflow == null ? BigDecimal.ZERO : cashflow.getCrAmount())).append("&");
+		sb.append(
+			FormatUtil.getAmountFormat(cashflow == null ? BigDecimal.ZERO : cashflow.getCrAmount().add(
+				crAmount.negate()))).append("&");
 
 		BankAcct bankAcct = bankAcctService.getBankAcctStats(orgId, "1001");
 		sb.append(FormatUtil.getAmountFormat(bankAcct == null ? BigDecimal.ZERO : bankAcct.getCurBal()));

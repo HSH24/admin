@@ -35,7 +35,7 @@ myApp.onPageInit('cashflow.shop', function(page) {
 function cashflow_shop_stats() {
 	$$.get(appUrl + '/cashflow/stats.htm', {}, function(data) {
 				var stats = data.split("&");
-				$$('#cashflow/shop/b').html(stats[1]);
-				$$('#cashflow/shop/curBal').html(stats[2]);
+				$$('#cashflow/shop/crAmount').html(stats[0]);
+				$$('#cashflow/shop/curBal').html(stats[1]);
 			});
 }
