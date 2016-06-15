@@ -14,6 +14,7 @@
 	<div data-page="shop.list" class="page">
 		<!-- Scrollable page content-->
 		<div class="page-content">
+			#if($!{shopList} && $!{shopList.size()} > 0)
 			<div class="list-block accordion-list" style="font-size: 14px;">
 				<ul>
 					#foreach($shop in $!{shopList})
@@ -37,6 +38,16 @@
 					#end
                 </ul>
             </div>
+			#else
+			<div class="empty-list">
+				<div class="empty-list-header">
+					<h4>没有店铺数据</h4>
+					<span></span>
+				</div>
+				<div class="empty-list-content">
+				</div>
+			</div>
+			#end
         </div>
     </div>
 </div>

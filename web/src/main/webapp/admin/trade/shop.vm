@@ -14,6 +14,7 @@
 	<div data-page="trade.shop" class="page no-tabbar">
 		<!-- Scrollable page content-->
 		<div class="page-content">
+			#if($!{tradeList} && $!{tradeList.size()} > 0)
 			<div class="list-block accordion-list" style="font-size: 14px;">
 				#foreach($trade in $!{tradeList})
 				<ul class="after-height-0">
@@ -29,6 +30,16 @@
                 </ul>
 				#end
             </div>
+			#else
+			<div class="empty-list">
+				<div class="empty-list-header">
+					<h4>没有店铺数据</h4>
+					<span></span>
+				</div>
+				<div class="empty-list-content">
+				</div>
+			</div>
+			#end
         </div>
     </div>
 </div>
