@@ -15,21 +15,6 @@
 		<!-- Scrollable page content-->
 		<div class="page-content">
             <input type="hidden" id="sale/list/shopId" value="$!{shopId}"></input>
-			<div class="list-block" style="font-size: 15px;">
-				<ul class="page-settings">
-					<li class="row" style="text-align: center;">
-						<div class="col-50" style="width: 50%;">
-							<h3 id="sale/list/a">0.00</h3>
-							<div class="color-gray">今天(元)</div>
-                        </div>
-						<div class="col-50" style="width: 50%;">
-							<h3 id="sale/list/b">0.00</h3>
-							<div class="color-gray">本月(元)</div>
-                        </div>
-					</li>
-                </ul>
-            </div>
-			
 			<div class="list-block" style="font-size: 14px;">
 				<ul>
 					<li>
@@ -45,6 +30,21 @@
 							</div>
                         </div>
                     </li>
+                </ul>
+            </div>
+			
+			<div class="list-block" style="font-size: 15px;">
+				<ul class="page-settings">
+					<li class="row" style="text-align: center;">
+						<div class="col-50" style="width: 50%;">
+							<h3 id="sale/list/a">0.00</h3>
+							<div class="color-gray">今天(元)</div>
+                        </div>
+						<div class="col-50" style="width: 50%;">
+							<h3 id="sale/list/b">0.00</h3>
+							<div class="color-gray">本月(元)</div>
+                        </div>
+					</li>
                 </ul>
             </div>
 			
