@@ -2,7 +2,11 @@ package com.hsh24.admin.sale.action;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang.StringUtils;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 
 import com.hsh24.admin.api.sale.ISaleService;
 import com.hsh24.admin.api.sale.bo.Sale;
@@ -16,10 +20,13 @@ import com.hsh24.admin.framework.util.FormatUtil;
  * @author JiakunXu
  * 
  */
+@Controller
+@Scope("request")
 public class SaleAction extends BaseAction {
 
 	private static final long serialVersionUID = -486178851207623062L;
 
+	@Resource
 	private ISaleService saleService;
 
 	private List<Sale> saleList;
@@ -116,14 +123,6 @@ public class SaleAction extends BaseAction {
 		saleDetailList = saleService.getSaleDetailList(this.getOrg().getOrgId(), shopId, tradeNo);
 
 		return SUCCESS;
-	}
-
-	public ISaleService getSaleService() {
-		return saleService;
-	}
-
-	public void setSaleService(ISaleService saleService) {
-		this.saleService = saleService;
 	}
 
 	public List<Sale> getSaleList() {

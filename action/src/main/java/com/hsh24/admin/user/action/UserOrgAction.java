@@ -2,7 +2,11 @@ package com.hsh24.admin.user.action;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 
 import com.hsh24.admin.api.org.bo.Org;
 import com.hsh24.admin.api.user.IUserOrgService;
@@ -14,10 +18,13 @@ import com.hsh24.admin.framework.action.BaseAction;
  * @author JiakunXu
  * 
  */
+@Controller
+@Scope("request")
 public class UserOrgAction extends BaseAction {
 
 	private static final long serialVersionUID = 7564591974795037550L;
 
+	@Resource
 	private IUserOrgService userOrgService;
 
 	private List<Org> orgList;
@@ -50,14 +57,6 @@ public class UserOrgAction extends BaseAction {
 		}
 
 		return "org";
-	}
-
-	public IUserOrgService getUserOrgService() {
-		return userOrgService;
-	}
-
-	public void setUserOrgService(IUserOrgService userOrgService) {
-		this.userOrgService = userOrgService;
 	}
 
 	public List<Org> getOrgList() {

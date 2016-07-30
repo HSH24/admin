@@ -23,6 +23,13 @@ public interface ISaleDao {
 	 * @param sale
 	 * @return
 	 */
-	List<Sale> getSaleList(Sale sale);
+	List<Sale> getSaleList1(Sale sale);
+
+	/**
+	 * 
+	 * @param sale
+	 * @return
+	 */
+	List<Sale> getSaleList2(Sale sale);
 
 }

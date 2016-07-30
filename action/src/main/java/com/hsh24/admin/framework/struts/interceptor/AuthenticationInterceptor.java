@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.stereotype.Component;
 
 import com.hsh24.admin.api.ca.ICAService;
 import com.hsh24.admin.api.org.bo.Org;
@@ -18,6 +19,7 @@ import com.opensymphony.xwork2.interceptor.Interceptor;
  * @author JiakunXu
  * 
  */
+@Component
 public class AuthenticationInterceptor implements Interceptor {
 
 	private static final long serialVersionUID = -7498838714747075663L;

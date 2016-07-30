@@ -4,7 +4,10 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
 
 import com.hsh24.admin.api.shop.IShopService;
 import com.hsh24.admin.api.shop.bo.Shop;
@@ -24,16 +27,21 @@ import com.hsh24.admin.trade.dao.ITradeDao;
  * @author JiakunXu
  * 
  */
+@Service
 public class TradeServiceImpl implements ITradeService {
 
 	private Logger4jExtend logger = Logger4jCollection.getLogger(TradeServiceImpl.class);
 
+	@Resource
 	private IShopService shopService;
 
+	@Resource
 	private ISupplierService supplierService;
 
+	@Resource
 	private IOrderService orderService;
 
+	@Resource
 	private ITradeDao tradeDao;
 
 	@Override
@@ -87,7 +95,7 @@ public class TradeServiceImpl implements ITradeService {
 		List<Trade> tradeList = null;
 
 		try {
-			tradeList = tradeDao.getTradeList(trade);
+			tradeList = tradeDao.getTradeList1(trade);
 		} catch (Exception e) {
 			logger.error(LogUtil.parserBean(trade), e);
 		}
@@ -128,7 +136,7 @@ public class TradeServiceImpl implements ITradeService {
 		List<Trade> tradeList = null;
 
 		try {
-			tradeList = tradeDao.getTradeList(trade);
+			tradeList = tradeDao.getTradeList2(trade);
 		} catch (Exception e) {
 			logger.error(LogUtil.parserBean(trade), e);
 		}
@@ -201,38 +209,6 @@ public class TradeServiceImpl implements ITradeService {
 		}
 
 		return trade;
-	}
-
-	public IShopService getShopService() {
-		return shopService;
-	}
-
-	public void setShopService(IShopService shopService) {
-		this.shopService = shopService;
-	}
-
-	public ISupplierService getSupplierService() {
-		return supplierService;
-	}
-
-	public void setSupplierService(ISupplierService supplierService) {
-		this.supplierService = supplierService;
-	}
-
-	public IOrderService getOrderService() {
-		return orderService;
-	}
-
-	public void setOrderService(IOrderService orderService) {
-		this.orderService = orderService;
-	}
-
-	public ITradeDao getTradeDao() {
-		return tradeDao;
-	}
-
-	public void setTradeDao(ITradeDao tradeDao) {
-		this.tradeDao = tradeDao;
 	}
 
 }

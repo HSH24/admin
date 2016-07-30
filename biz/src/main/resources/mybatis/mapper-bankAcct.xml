@@ -1,0 +1,27 @@
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hsh24.admin.bankAcct.dao.IBankAcctDao">
+	
+	<select id="getBankAcctStats" parameterType="bankAcct" resultType="bankAcct">
+	<![CDATA[
+		SELECT SUM(t.cur_bal) AS curBal
+		  FROM dms_tb_bank_account t,
+			   dms_tb_account p,
+			   dms_tb_org_shop q
+		 WHERE t.acc_id = p.acc_id
+		   AND t.shop_id = p.shop_id
+		   AND t.shop_id = q.shop_id
+		   AND t.state = 'U'
+		   AND p.state = 'U'
+		   AND q.state = 'U'
+		   AND p.acc_code = #{accCode}
+		   AND q.org_id = #{orgId}
+	]]>
+		<if test="shopId != null and shopId != ''">
+		<![CDATA[ AND t.shop_id = #{shopId} ]]>
+		</if>
+	</select>
+	
+</mapper>

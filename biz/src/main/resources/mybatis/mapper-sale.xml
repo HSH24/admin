@@ -1,0 +1,65 @@
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hsh24.admin.sale.dao.ISaleDao">
+	
+	<select id="getStats" parameterType="sale" resultType="sale">
+	<![CDATA[
+		SELECT IFNULL(SUM(p.pay_money), 0) AS amount
+		  FROM oms.ord_order_t t,
+			   oms.ord_order_pay_t p,
+			   dms_tb_org_shop q
+		 WHERE t.order_dt >= date_format(#{gmtStart}, '%Y-%m-%d %T')
+		   AND t.order_dt <= date_format(#{gmtEnd}, '%Y-%m-%d %T')
+		   AND t.order_id = p.order_id
+		   AND t.org_id = q.shop_id
+		   AND t.order_status = '0005'
+		   AND q.state = 'U'
+		   AND q.org_id = #{orgId}
+	]]>
+		<if test="shopId != null and shopId != ''">
+		<![CDATA[ AND t.org_id = #{shopId} ]]>
+		</if>
+	</select>
+	
+	<select id="getSaleList1" parameterType="sale" resultType="sale">
+	<![CDATA[
+		SELECT IFNULL(bbb.amount, 0) AS amount,
+			   aaa.shop_id AS shopId
+		  FROM dms_tb_org_shop aaa
+		  LEFT JOIN(
+		SELECT SUM(p.pay_money) as amount,
+			   t.org_id
+		  FROM oms.ord_order_t t, oms.ord_order_pay_t p
+		 WHERE t.order_dt >= date_format(#{gmtStart}, '%Y-%m-%d %T')
+		   AND t.order_dt <= date_format(#{gmtEnd}, '%Y-%m-%d %T')
+		   AND t.order_id = p.order_id
+		   AND t.order_status = '0005'
+		 GROUP BY t.org_id) bbb on aaa.shop_id = bbb.org_id
+		 WHERE aaa.state = 'U'
+		   AND aaa.org_id = #{orgId}
+	]]>
+	</select>
+	
+	<select id="getSaleList2" parameterType="sale" resultType="sale">
+	<![CDATA[
+		SELECT p.pay_money AS amount,
+			   t.order_cd AS tradeNo,
+			   DATE_FORMAT(t.order_dt, '%Y-%m-%d %T') AS tradeDate
+		  FROM oms.ord_order_t t,
+			   oms.ord_order_pay_t p,
+			   dms_tb_org_shop q
+		 WHERE t.order_dt >= date_format(#{gmtStart}, '%Y-%m-%d %T')
+		   AND t.order_dt <= date_format(#{gmtEnd}, '%Y-%m-%d %T')
+		   AND t.order_id = p.order_id
+		   AND t.org_id = q.shop_id
+		   AND t.order_status = '0005'
+		   AND q.state = 'U'
+		   AND q.org_id = #{orgId}
+		   AND t.org_id = #{shopId}
+		  ORDER BY t.order_dt DESC
+	]]>
+	</select>
+	
+</mapper>

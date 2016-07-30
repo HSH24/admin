@@ -6,7 +6,7 @@
 		extends="struts-default" namespace="/framework">
 
 		<result-types>
-			<result-type name="velocity" class="org.apache.struts2.dispatcher.VelocityResult" default="true" />
+			<result-type name="velocity" class="org.apache.struts2.result.VelocityResult" default="true" />
 			<result-type name="json" class="com.hsh24.admin.framework.struts.result.JSONResult" />
 		</result-types>
 

@@ -2,7 +2,10 @@ package com.hsh24.admin.stock.service.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
 
 import com.hsh24.admin.api.shop.IShopService;
 import com.hsh24.admin.api.shop.bo.Shop;
@@ -18,12 +21,15 @@ import com.wideka.weixin.framework.util.LogUtil;
  * @author JiakunXu
  * 
  */
+@Service
 public class StockServiceImpl implements IStockService {
 
 	private Logger4jExtend logger = Logger4jCollection.getLogger(StockServiceImpl.class);
 
+	@Resource
 	private IShopService shopService;
 
+	@Resource
 	private IStockDao stockDao;
 
 	@Override
@@ -55,7 +61,7 @@ public class StockServiceImpl implements IStockService {
 		List<Stock> stockList = null;
 
 		try {
-			stockList = stockDao.getStockList(stock);
+			stockList = stockDao.getStockList1(stock);
 		} catch (Exception e) {
 			logger.error(LogUtil.parserBean(stock), e);
 		}
@@ -90,28 +96,12 @@ public class StockServiceImpl implements IStockService {
 		}
 
 		try {
-			return stockDao.getStockList(stock);
+			return stockDao.getStockList2(stock);
 		} catch (Exception e) {
 			logger.error(LogUtil.parserBean(stock), e);
 		}
 
 		return null;
-	}
-
-	public IShopService getShopService() {
-		return shopService;
-	}
-
-	public void setShopService(IShopService shopService) {
-		this.shopService = shopService;
-	}
-
-	public IStockDao getStockDao() {
-		return stockDao;
-	}
-
-	public void setStockDao(IStockDao stockDao) {
-		this.stockDao = stockDao;
 	}
 
 }

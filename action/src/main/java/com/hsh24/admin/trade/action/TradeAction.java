@@ -2,15 +2,23 @@ package com.hsh24.admin.trade.action;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+
 import com.hsh24.admin.api.trade.ITradeService;
 import com.hsh24.admin.api.trade.bo.Trade;
 import com.hsh24.admin.framework.action.BaseAction;
 import com.hsh24.admin.framework.util.FormatUtil;
 
+@Controller
+@Scope("request")
 public class TradeAction extends BaseAction {
 
 	private static final long serialVersionUID = 5383400445408274054L;
 
+	@Resource
 	private ITradeService tradeService;
 
 	private String type;
@@ -76,14 +84,6 @@ public class TradeAction extends BaseAction {
 		trade = tradeService.getTrade(this.getOrg().getOrgId(), shopId, tradeNo);
 
 		return SUCCESS;
-	}
-
-	public ITradeService getTradeService() {
-		return tradeService;
-	}
-
-	public void setTradeService(ITradeService tradeService) {
-		this.tradeService = tradeService;
 	}
 
 	public String getType() {

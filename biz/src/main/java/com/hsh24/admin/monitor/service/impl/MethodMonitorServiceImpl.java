@@ -2,6 +2,10 @@ package com.hsh24.admin.monitor.service.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.hsh24.admin.api.monitor.IMethodMonitorService;
 import com.hsh24.admin.api.monitor.bo.MethodMonitor;
 import com.hsh24.admin.framework.bo.BooleanResult;
@@ -15,10 +19,12 @@ import com.hsh24.admin.monitor.dao.IMethodMonitorDao;
  * @author xujiakun
  * 
  */
+@Service
 public class MethodMonitorServiceImpl implements IMethodMonitorService {
 
 	private Logger4jExtend logger = Logger4jCollection.getLogger(MethodMonitorServiceImpl.class);
 
+	@Resource
 	private IMethodMonitorDao methodMonitorDao;
 
 	@Override
@@ -62,8 +68,7 @@ public class MethodMonitorServiceImpl implements IMethodMonitorService {
 		}
 
 		try {
-			String result = methodMonitorDao.createMethodMonitor(methodMonitor);
-			res.setCode(result);
+			methodMonitorDao.createMethodMonitor(methodMonitor);
 			res.setResult(true);
 		} catch (Exception e) {
 			logger.error(LogUtil.parserBean(methodMonitor), e);
@@ -72,14 +77,6 @@ public class MethodMonitorServiceImpl implements IMethodMonitorService {
 		}
 
 		return res;
-	}
-
-	public IMethodMonitorDao getMethodMonitorDao() {
-		return methodMonitorDao;
-	}
-
-	public void setMethodMonitorDao(IMethodMonitorDao methodMonitorDao) {
-		this.methodMonitorDao = methodMonitorDao;
 	}
 
 }

@@ -3,6 +3,10 @@ package com.hsh24.admin.shop.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.hsh24.admin.api.cache.IMemcachedCacheService;
 import com.hsh24.admin.api.shop.IShopService;
 import com.hsh24.admin.api.shop.bo.Shop;
@@ -19,14 +23,18 @@ import com.hsh24.admin.shop.dao.IShopDao;
  * @author JiakunXu
  * 
  */
+@Service
 public class ShopServiceImpl implements IShopService {
 
 	private Logger4jExtend logger = Logger4jCollection.getLogger(ShopServiceImpl.class);
 
+	@Resource
 	private IMemcachedCacheService memcachedCacheService;
 
+	@Resource
 	private IUserService userService;
 
+	@Resource
 	private IShopDao shopDao;
 
 	@Override
@@ -149,30 +157,6 @@ public class ShopServiceImpl implements IShopService {
 		}
 
 		return null;
-	}
-
-	public IMemcachedCacheService getMemcachedCacheService() {
-		return memcachedCacheService;
-	}
-
-	public void setMemcachedCacheService(IMemcachedCacheService memcachedCacheService) {
-		this.memcachedCacheService = memcachedCacheService;
-	}
-
-	public IUserService getUserService() {
-		return userService;
-	}
-
-	public void setUserService(IUserService userService) {
-		this.userService = userService;
-	}
-
-	public IShopDao getShopDao() {
-		return shopDao;
-	}
-
-	public void setShopDao(IShopDao shopDao) {
-		this.shopDao = shopDao;
 	}
 
 }

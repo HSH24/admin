@@ -23,6 +23,13 @@ public interface IStockDao {
 	 * @param stock
 	 * @return
 	 */
-	List<Stock> getStockList(Stock stock);
+	List<Stock> getStockList1(Stock stock);
+
+	/**
+	 * 
+	 * @param stock
+	 * @return
+	 */
+	List<Stock> getStockList2(Stock stock);
 
 }

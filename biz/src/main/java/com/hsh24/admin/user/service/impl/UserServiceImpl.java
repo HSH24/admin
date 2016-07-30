@@ -2,7 +2,10 @@ package com.hsh24.admin.user.service.impl;
 
 import java.io.IOException;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
 
 import com.hsh24.admin.api.cache.IMemcachedCacheService;
 import com.hsh24.admin.api.user.IUserService;
@@ -20,12 +23,15 @@ import com.wideka.weixin.framework.util.EncryptUtil;
  * @author JiakunXu
  * 
  */
+@Service
 public class UserServiceImpl implements IUserService {
 
 	private Logger4jExtend logger = Logger4jCollection.getLogger(UserServiceImpl.class);
 
+	@Resource
 	private IMemcachedCacheService memcachedCacheService;
 
+	@Resource
 	private IUserDao userDao;
 
 	@Override
@@ -199,22 +205,6 @@ public class UserServiceImpl implements IUserService {
 		} catch (ServiceException e) {
 			logger.error(e);
 		}
-	}
-
-	public IMemcachedCacheService getMemcachedCacheService() {
-		return memcachedCacheService;
-	}
-
-	public void setMemcachedCacheService(IMemcachedCacheService memcachedCacheService) {
-		this.memcachedCacheService = memcachedCacheService;
-	}
-
-	public IUserDao getUserDao() {
-		return userDao;
-	}
-
-	public void setUserDao(IUserDao userDao) {
-		this.userDao = userDao;
 	}
 
 }

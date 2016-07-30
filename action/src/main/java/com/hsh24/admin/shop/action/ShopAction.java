@@ -2,6 +2,11 @@ package com.hsh24.admin.shop.action;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+
 import com.hsh24.admin.api.shop.IShopService;
 import com.hsh24.admin.api.shop.bo.Shop;
 import com.hsh24.admin.framework.action.BaseAction;
@@ -11,10 +16,13 @@ import com.hsh24.admin.framework.action.BaseAction;
  * @author JiakunXu
  * 
  */
+@Controller
+@Scope("request")
 public class ShopAction extends BaseAction {
 
 	private static final long serialVersionUID = 4698529978398184206L;
 
+	@Resource
 	private IShopService shopService;
 
 	private List<Shop> shopList;
@@ -39,14 +47,6 @@ public class ShopAction extends BaseAction {
 		shopList = shopService.getShopList(this.getOrg().getOrgId());
 
 		return SUCCESS;
-	}
-
-	public IShopService getShopService() {
-		return shopService;
-	}
-
-	public void setShopService(IShopService shopService) {
-		this.shopService = shopService;
 	}
 
 	public List<Shop> getShopList() {

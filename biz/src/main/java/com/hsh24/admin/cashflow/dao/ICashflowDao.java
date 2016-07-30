@@ -23,6 +23,13 @@ public interface ICashflowDao {
 	 * @param cashflow
 	 * @return
 	 */
-	List<Cashflow> getCashflowList(Cashflow cashflow);
+	List<Cashflow> getCashflowList1(Cashflow cashflow);
+
+	/**
+	 * 
+	 * @param cashflow
+	 * @return
+	 */
+	List<Cashflow> getCashflowList2(Cashflow cashflow);
 
 }

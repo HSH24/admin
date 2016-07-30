@@ -2,7 +2,10 @@ package com.hsh24.admin.sale.service.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
 
 import com.hsh24.admin.api.sale.ISaleService;
 import com.hsh24.admin.api.sale.bo.Sale;
@@ -20,14 +23,18 @@ import com.wideka.weixin.framework.util.LogUtil;
  * @author JiakunXu
  * 
  */
+@Service
 public class SaleServiceImpl implements ISaleService {
 
 	private Logger4jExtend logger = Logger4jCollection.getLogger(SaleServiceImpl.class);
 
+	@Resource
 	private IShopService shopService;
 
+	@Resource
 	private ISaleDao saleDao;
 
+	@Resource
 	private ISaleDetailDao saleDetailDao;
 
 	@Override
@@ -66,7 +73,7 @@ public class SaleServiceImpl implements ISaleService {
 		List<Sale> saleList = null;
 
 		try {
-			saleList = saleDao.getSaleList(sale);
+			saleList = saleDao.getSaleList1(sale);
 		} catch (Exception e) {
 			logger.error(LogUtil.parserBean(sale), e);
 		}
@@ -103,7 +110,7 @@ public class SaleServiceImpl implements ISaleService {
 		}
 
 		try {
-			return saleDao.getSaleList(sale);
+			return saleDao.getSaleList2(sale);
 		} catch (Exception e) {
 			logger.error(LogUtil.parserBean(sale), e);
 		}
@@ -135,30 +142,6 @@ public class SaleServiceImpl implements ISaleService {
 		}
 
 		return null;
-	}
-
-	public IShopService getShopService() {
-		return shopService;
-	}
-
-	public void setShopService(IShopService shopService) {
-		this.shopService = shopService;
-	}
-
-	public ISaleDao getSaleDao() {
-		return saleDao;
-	}
-
-	public void setSaleDao(ISaleDao saleDao) {
-		this.saleDao = saleDao;
-	}
-
-	public ISaleDetailDao getSaleDetailDao() {
-		return saleDetailDao;
-	}
-
-	public void setSaleDetailDao(ISaleDetailDao saleDetailDao) {
-		this.saleDetailDao = saleDetailDao;
 	}
 
 }

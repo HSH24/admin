@@ -2,7 +2,10 @@ package com.hsh24.admin.cashflow.service.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
 
 import com.hsh24.admin.api.cashflow.ICashflowService;
 import com.hsh24.admin.api.cashflow.bo.Cashflow;
@@ -18,12 +21,15 @@ import com.hsh24.admin.framework.util.LogUtil;
  * @author JiakunXu
  * 
  */
+@Service
 public class CashflowServiceImpl implements ICashflowService {
 
 	private Logger4jExtend logger = Logger4jCollection.getLogger(CashflowServiceImpl.class);
 
+	@Resource
 	private IShopService shopService;
 
+	@Resource
 	private ICashflowDao cashflowDao;
 
 	@Override
@@ -70,7 +76,7 @@ public class CashflowServiceImpl implements ICashflowService {
 		List<Cashflow> cashflowList = null;
 
 		try {
-			cashflowList = cashflowDao.getCashflowList(cashflow);
+			cashflowList = cashflowDao.getCashflowList1(cashflow);
 		} catch (Exception e) {
 			logger.error(LogUtil.parserBean(cashflow), e);
 		}
@@ -107,28 +113,12 @@ public class CashflowServiceImpl implements ICashflowService {
 		}
 
 		try {
-			return cashflowDao.getCashflowList(cashflow);
+			return cashflowDao.getCashflowList2(cashflow);
 		} catch (Exception e) {
 			logger.error(LogUtil.parserBean(cashflow), e);
 		}
 
 		return null;
-	}
-
-	public IShopService getShopService() {
-		return shopService;
-	}
-
-	public void setShopService(IShopService shopService) {
-		this.shopService = shopService;
-	}
-
-	public ICashflowDao getCashflowDao() {
-		return cashflowDao;
-	}
-
-	public void setCashflowDao(ICashflowDao cashflowDao) {
-		this.cashflowDao = cashflowDao;
 	}
 
 }
