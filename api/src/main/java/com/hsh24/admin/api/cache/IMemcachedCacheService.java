@@ -23,6 +23,11 @@ public interface IMemcachedCacheService extends ICacheService<String, Object> {
 	/**
 	 * session.
 	 */
+	String CACHE_KEY_SESSION = "admin:key_session_";
+
+	/**
+	 * session.
+	 */
 	int CACHE_KEY_SESSION_DEFAULT_EXP = 168 * 60 * 60;
 
 	/**
@@ -40,7 +45,7 @@ public interface IMemcachedCacheService extends ICacheService<String, Object> {
 	/**
 	 * check code.
 	 */
-	String CACHE_KEY_CHECK_CODE = "key_check_code_";
+	String CACHE_KEY_CHECK_CODE = "admin:key_check_code_";
 
 	/**
 	 * check code.
@@ -50,21 +55,21 @@ public interface IMemcachedCacheService extends ICacheService<String, Object> {
 	/**
 	 * passport.
 	 */
-	String CACHE_KEY_PASSPORT = "key_passport_";
+	String CACHE_KEY_PASSPORT = "admin:key_passport_";
 
 	// >>>>>>>>>>以下是监控相关<<<<<<<<<<
 
 	/**
 	 * log monitor.
 	 */
-	String CACHE_KEY_LOG_MONITOR = "key_log_monitor";
+	String CACHE_KEY_LOG_MONITOR = "admin:key_log_monitor";
 
 	int CACHE_KEY_LOG_MONITOR_DEFAULT_EXP = 0;
 
 	/**
 	 * action log.
 	 */
-	String CACHE_KEY_ACTION_LOG = "key_action_log";
+	String CACHE_KEY_ACTION_LOG = "admin:key_action_log";
 
 	int CACHE_KEY_ACTION_LOG_DEFAULT_EXP = 0;
 
@@ -73,17 +78,17 @@ public interface IMemcachedCacheService extends ICacheService<String, Object> {
 	/**
 	 * token.
 	 */
-	String CACHE_KEY_WX_TOKEN = "key_wx_token_";
+	String CACHE_KEY_WX_TOKEN = "admin:key_wx_token_";
 
-	String CACHE_KEY_WX_TICKET = "key_wx_ticket_";
+	String CACHE_KEY_WX_TICKET = "admin:key_wx_ticket_";
 
 	// >>>>>>>>>>以下是供应商相关<<<<<<<<<<
 
-	String CACHE_KEY_SUP_ID = "key_sup_id_";
+	String CACHE_KEY_SUP_ID = "admin:key_sup_id_";
 
 	// >>>>>>>>>>以下是店铺相关<<<<<<<<<<
 
-	String CACHE_KEY_SHOP_ID = "key_shop_id_";
+	String CACHE_KEY_SHOP_ID = "admin:key_shop_id_";
 
 	// >>>>>>>>>>end<<<<<<<<<<
 
